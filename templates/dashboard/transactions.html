@@ -1,0 +1,642 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paylio - Money Transfer and Online Payments Dashboard HTML Template</title>
+
+    <link rel="shortcut icon" href="{% static 'assets/images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/apexcharts.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+{% if logged_in_user %}
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+<script>
+    function formatDateToLocale(dateString) {
+        const options = { day: 'numeric', month: 'short' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+    function formatTimeToAMPM(dateString) {
+        const date = new Date(dateString);
+        let hours = date.getHours();
+        const minutes = date.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 12-hour clock format
+
+        const formattedTime = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+        return formattedTime;
+    }
+
+
+
+    function getnotifications() {
+        fetch(`notifications`)
+            .then(response => response.json())
+            .then(data => {
+                const notifications = data.success;
+
+                if (notifications) {
+                    let content = '';
+                    notifications.forEach(notification => {
+                        // Format the time using JavaScript Date object
+                        const formattedTime = new Date(notification.time).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            hour12: true
+                        });
+                        const url = `/dashboard/${notification.url}`;
+                        if (notification.senderemail == notification.myemail) {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">you have sent <b>${notification.amount}</b> to <b>${notification.name}</b></p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                        else if (notification.recipientemail == notification.myemail) {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">you have recieved <b>${notification.amount}</b> from <b>${notification.senderemail}</b></p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                        else {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">${notification.notification}</p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                    });
+
+                    // Append generated content to the table body
+                    document.getElementById('notificationTableBody').innerHTML = content;
+                } else {
+                    console.log('No notifications found');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    // Call the function on document load
+    document.addEventListener('DOMContentLoaded', function () {
+        getnotifications();
+    });
+</script>
+    <!-- header-section start -->
+    <header class="header-section body-collapse">
+        <div class="overlay">
+            <div class="container-fruid">
+                <div class="row d-flex header-area">
+                    <div class="navbar-area d-flex align-items-center justify-content-between">
+                        <div class="sidebar-icon">
+                            <img src="{% static 'assets/images/icon/menu.png' %}" alt="icon">
+                        </div>
+                        <form action="#" class="flex-fill">
+                            <div class="form-group d-flex align-items-center">
+                                <img src="{% static 'assets/images/icon/search.png' %}" alt="icon">
+                                <input type="text" placeholder="Type to search...">
+                            </div>
+                        </form>
+                        <div class="dashboard-nav">
+                            <div class="single-item language-area">
+                                <div class="language-btn">
+                                    <img src="{% static 'assets/images/icon/lang.png' %}" alt="icon">
+                                </div>
+                                <ul class="main-area language-content">
+                                    <li>English</li>
+                                    <li>Hindi</li>
+                                    <li class="active">English (US)</li>
+                                    <li>Japanese</li>
+                                    <li>Kannada</li>
+                                    <li>Lithuanian</li>
+                                </ul>
+                            </div>
+                            <div class="single-item notifications-area">
+                                <div class="notifications-btn">
+                                    <img src="{% static 'assets/images/icon/bell.png' %}" class="bell-icon" alt="icon">
+                                </div>
+                                <div class="main-area notifications-content">
+                                    <div class="head-area d-flex justify-content-between">
+                                        <h5>Notifications</h5>
+                                        <span class="mdr">4</span>
+                                    </div>
+                                    <ul id="notificationTableBody">
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-item user-area">
+                                <div class="profile-area d-flex align-items-center">
+                                    <span class="user-profile">
+                                                        {% if logged_in_user.image_url %}
+                                                        <img style="width: 40px;height: 40px;border-radius: 50%;" src="{{logged_in_user.image_url}}" alt="image">
+                                                        {% else %}
+                                                        <img src="{% static 'assets/images/avatar.png' %}" alt="">
+                                                        {% endif %}
+                                    </span>
+                                    <i class="fa-solid fa-sort-down"></i>
+                                </div>
+                                <div class="main-area user-content">
+                                    <div class="head-area d-flex align-items-center">
+                                        <div class="profile-img">
+                                                        {% if logged_in_user.image_url %}
+                                                        <img style="width: 50px;height: 50px;border-radius: 50%;" src="{{logged_in_user.image_url}}" alt="image">
+                                                        {% else %}
+                                                        <img src="{% static 'assets/images/avatar.png' %}" alt="">
+                                                        {% endif %}
+
+                                        </div>
+                                        <div class="profile-head">
+                                            <a href="javascript:void(0)">
+                                                <h5>{{logged_in_user.firstname}} {{logged_in_user.lastname}}</h5>
+                                            </a>
+                                            <p class="wallet-id">Wallet ID: 6264849965</p>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="border-area">
+                                            <a href="{% url 'account' %}"><i class="fas fa-cog"></i>Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'logout' %}"><i class="fas fa-sign-out"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-wrapper">
+                        <div class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <div class="sidebar-logo">
+<a href="{% url 'dashboard' %}"><img style="width: 20px;margin-left: -5px;" src="{% static 'assets/images/logo.png' %}"
+        alt="logo"><span style="color: #5927E3;padding-left: 3px;font-size: 19px;font-weight: bold;">EPS</span><span
+        style="font-weight: bold;font-size: 19px;color: #D8481B;">PAY</span></a>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="{% url 'dashboard' %}">
+                                    <img src="{% static 'assets/images/icon/dashboard.png' %}" alt="Dashboard"> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="{% url 'transactions' %}">
+                                    <img src="{% static 'assets/images/icon/transactions.png' %}" alt="Transactions"> <span>Transactions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'pay' %}">
+                                    <img src="{% static 'assets/images/icon/pay.png' %}" alt="Pay"> <span>Pay</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'receive1' %}">
+                                    <img src="{% static 'assets/images/icon/receive.png' %}" alt="Receive"> <span>Receive</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'moneyexchange' %}">
+                                    <img src="{% static 'assets/images/icon/exchange.png' %}" alt="Exchange"> <span>Exchange</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'recipients' %}">
+                                    <img src="{% static 'assets/images/icon/recipients.png' %}" alt="Recipients"> <span>Recipients</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'crypto' %}">
+                                    <img src="{% static 'assets/images/icon/crypto.png' %}" alt="Crypto"> <span>Crypto</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'depositmoney' %}">
+                                    <img src="{% static 'assets/images/icon/deposit.png' %}" alt="Deposit"> <span>Deposit Money</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'withdraw1' %}">
+                                    <img src="{% static 'assets/images/icon/withdraw.png' %}" alt="Withdraw"> <span>Withdraw Money</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="bottom-item">
+                            <li>
+                                <a href="{% url 'account' %}">
+                                    <img src="{% static 'assets/images/icon/account.png' %}" alt="Account"> <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="{% static 'assets/images/icon/support.png' %}" alt="Support"> <span>Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="{% static 'assets/images/icon/quit.png' %}" alt="Quit"> <span>Quit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="pt-120">
+                            <div class="invite-now">
+                                <div class="img-area">
+                                    <img src="{% static 'assets/images/invite-now-illus.png' %}" alt="Image">
+                                </div>
+                                <p>Invite your friend and get $25</p>
+                                <a href="javascript:void(0)" class="cmn-btn">Invite Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+    <!-- Dashboard Section start -->
+    <section class="dashboard-section body-collapse transactions">
+        <div class="overlay pt-120">
+            <div class="container-fruid">
+                <div class="head-area">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-4">
+                            <h4>Transactions</h4>
+                        </div>
+                        <div class="col-lg-7 col-md-8">
+                            <div class="transactions-right d-flex align-items-center">
+                                <form action="#" class="flex-fill">
+                                    <div class="form-group d-flex align-items-center">
+                                        <img src="{% static 'assets/images/icon/search.png' %}" alt="icon">
+                                        <input type="text" placeholder="Type to search...">
+                                    </div>
+                                </form>
+                                <a href="javascript:void(0)">Monthly Statement</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="transactions-main">
+                            <div class="top-items">
+                                <h6>All Transactions</h6>
+                                <div class="export-area">
+                                    <ul class="d-flex align-items-center">
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/printer.png' %}" alt="icon">Print</a></li>
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/excel.png' %}" alt="icon">Excel</a></li>
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/pdf.png' %}" alt="icon">PDF</a></li>
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/csv.png' %}" alt="icon">CSV</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filters-item">
+                                <div class="single-item">
+                                    <select>
+                                        <option value="1">23 Nov 2021- 21 Feb 2022</option>
+                                        <option value="2">23 Feb 2021- 21 Mar 2022</option>
+                                        <option value="3">23 Mar 2021- 21 Apr 2022</option>
+                                    </select>
+                                </div>
+                                <div class="single-item">
+                                    <select>
+                                        <option value="1">Balance</option>
+                                        <option value="2">Balance</option>
+                                        <option value="3">Balance</option>
+                                    </select>
+                                </div>
+                                <div class="single-item">
+                                    <select>
+                                        <option>All Filters</option>
+                                        <option value="1">Filters 1</option>
+                                        <option value="2">Filters 2</option>
+                                        <option value="3">Filters 3</option>
+                                    </select>
+                                </div>
+                                <div class="single-item">
+                                    <button>Clear Filters</button>
+                                </div>
+                            </div>
+                            {% load tz %} {# load the timezone tag library #}
+                            {% if paytransactions %}
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name/ Business</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for transaction in paytransactions %}
+                                        <tr class="transaction-row" id="transactionRow" data-transaction-id="{{ transaction.id }}">
+                                            <th scope="row">
+                                                <p>{{ transaction.name }}</p>
+                                                <p class="mdr">{{ transaction.description }}</p>
+                                            </th>
+                                            <td>
+                                                <p>{{ transaction.date|date:"h:i A" }}</p>
+                                                <p class="mdr">{{ transaction.date|date:"d M Y" }}</p>
+                                            </td>
+                                            <td>
+                                                <p class="completed">{{ transaction.status }}</p>
+                                            </td>
+                                            <td>
+                                                <p>-${{ transaction.amount }}</p>
+                                                <p class="mdr">No Fees</p>
+                                                <input type="hidden" name="transactionid" value="{{ transaction.id }}" class="transaction-id">
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        <!-- <tr data-bs-toggle="modal" data-bs-target="#transactionsMod">
+                                            <th scope="row">
+                                                <p>Envato Pty Ltd</p>
+                                                <p class="mdr">Marketplace Payment Received</p>
+                                            </th>
+                                            <td>
+                                                <p>04:30 PM</p>
+                                                <p class="mdr">01 Mar 2022</p>
+                                            </td>
+                                            <td>
+                                                <p class="completed">Completed</p>
+                                            </td>
+                                            <td>
+                                                <p>+$450</p>
+                                                <p class="mdr">No Fees</p>
+                                            </td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#transactionsMod">
+                                            <th scope="row">
+                                                <p>Mailchimp</p>
+                                                <p class="mdr">Subscription Service Payment</p>
+                                            </th>
+                                            <td>
+                                                <p>01:15 PM</p>
+                                                <p class="mdr">25 Mar 2022</p>
+                                            </td>
+                                            <td>
+                                                <p class="completed">Completed</p>
+                                            </td>
+                                            <td>
+                                                <p>-$100</p>
+                                                <p class="mdr">No Fees</p>
+                                            </td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#transactionsMod">
+                                            <th scope="row">
+                                                <p>Facebook Ads</p>
+                                                <p class="mdr">Ads Service</p>
+                                            </th>
+                                            <td>
+                                                <p>07:05 PM</p>
+                                                <p class="mdr">15 Mar 2022</p>
+                                            </td>
+                                            <td>
+                                                <p class="pending">Pending</p>
+                                            </td>
+                                            <td>
+                                                <p>$200</p>
+                                                <p class="mdr">No Fees</p>
+                                            </td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#transactionsMod">
+                                            <th scope="row">
+                                                <p>Upwork Escow Inc</p>
+                                                <p class="mdr">Payment payment</p>
+                                            </th>
+                                            <td>
+                                                <p>04:02 PM</p>
+                                                <p class="mdr">10 Mar 2022</p>
+                                            </td>
+                                            <td>
+                                                <p class="completed">Completed</p>
+                                            </td>
+                                            <td>
+                                                <p>$450</p>
+                                                <p class="mdr">$.5</p>
+                                            </td>
+                                        </tr>
+                                        <tr data-bs-toggle="modal" data-bs-target="#transactionsMod">
+                                            <th scope="row">
+                                                <p>Ron Stewart</p>
+                                                <p class="mdr">Payment Refund</p>
+                                            </th>
+                                            <td>
+                                                <p>11:00 PM</p>
+                                                <p class="mdr">21 Mar 2022</p>
+                                            </td>
+                                            <td>
+                                                <p class="cancelled">Cancelled</p>
+                                            </td>
+                                            <td>
+                                                <p>+$450</p>
+                                                <p class="mdr">No Fees</p>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                                {% endif %}
+                            </div>
+                            <nav aria-label="Page navigation" class="d-flex justify-content-center mt-40">
+                                <ul class="pagination justify-content-center align-items-center mb-40">
+                                    <li class="page-item">
+                                        <a class="page-link previous" href="javascript:void(0)" aria-label="Previous">
+                                            <i class="fa-solid fa-angles-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link previous" href="javascript:void(0)" aria-label="Previous">
+                                            <i class="fa-solid fa-angle-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                                    <li class="page-item"><a class="page-link active" href="javascript:void(0)">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">...</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link next" href="javascript:void(0)" aria-label="Next">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link next" href="javascript:void(0)" aria-label="Next">
+                                            <i class="fa-solid fa-angles-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dashboard Section end -->
+<script>
+  
+    document.querySelectorAll('.transaction-row').forEach(row => {
+        row.addEventListener('mouseover', function () {
+            row.style.cursor = 'pointer';
+        });
+            row.addEventListener('click', function () {
+                // Get the transaction ID from the clicked row's data attribute
+                        const transactionId = this.dataset.transactionId;
+                // Perform a fetch request to a specified URL using the transaction ID
+                fetch(`transactionmodal/${transactionId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Process the received data as needed
+                        const date = new Date(data.date);
+                        const formattedDate = date.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+                        document.querySelector('#transactiondate').textContent = formattedDate;
+                        document.querySelector('#transactionname').textContent = data.name;
+                        document.querySelector('#transactionstatus').textContent = data.status;
+                        document.querySelector('#transactionamount').textContent = data.amount + "USD";
+                        document.querySelector('#transactionamount1').textContent = data.amount;
+                        document.querySelector('#transactionamount2').textContent = data.amount;
+                        // document.querySelector('#transactiondescription').textContent = data.description;
+                        const myModal = new bootstrap.Modal(document.getElementById('transactionsMod'));
+                         myModal.show();
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+</script>
+    <!-- Transactions Popup start -->
+    <div class="transactions-popup">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="transactionsMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-between">
+                                    <h5>Transaction Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <div class="main-content">
+                                    <div class="row">
+                                        <div class="col-sm-5 text-center">
+                                            <div class="icon-area">
+                                                <img src="{% static 'assets/images/icon/transaction-details-icon.png' %}" alt="icon">
+                                            </div>
+                                            <div class="text-area">
+                                                <h6 id="transactionname"></h6>
+                                                <p id="transactiondate"></p>
+                                                <h3 id="transactionamount"></h3>
+                                                <p class="com" id="transactionstatus">Completed</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="right-area">
+                                                <h6>Transaction Details</h6>
+                                                <ul class="payment-details">
+                                                    <li>
+                                                        <span>Payment Amount</span>
+                                                        <span id="transactionamount1"></span>
+                                                    </li>
+                                                    <li>
+                                                        <span>Fee</span>
+                                                        <span>Free</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>Total Amount</span>
+                                                        <span id="transactionamount2"></span>
+                                                    </li>
+                                                </ul>
+                                                <ul class="payment-info">
+                                                    <li>
+                                                        <p>Payment From</p>
+                                                        <span class="mdr">Envato Pty Ltd</span>
+                                                    </li>
+                                                    <li>
+                                                        <p>Payment Description</p>
+                                                        <span class="mdr">Envato Feb 2022 Member Payment</span>
+                                                    </li>
+                                                    <li>
+                                                        <p>Transaction  ID:</p>
+                                                        <span class="mdr">6559595979565959895559595</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Transactions Popup start -->
+{% endif %}
+    <!--==================================================================-->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/apexcharts.js"></script>
+    <script src="{% static 'assets/js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/plugin.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

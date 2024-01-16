@@ -1,0 +1,677 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paylio - Money Transfer and Online Payments HTML Template</title>
+<link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/slick.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'css/arafat-font.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex header-area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img style="margin-left: -5px;margin-top: -10px;" src="{% static 'images/logo.png' %}" alt="logo"><span
+                    style="color: #4743c9;padding-left: 3px;font-size: 27px;font-weight: bolder;">EPS</span><span
+                    style="font-weight: bolder;font-size: 27px;color: #0d6efd;">PAY</span>
+            </a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbar-content">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Personal</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Freelancer Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'subscriptions' %}">Subscriptions</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Business</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Business Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'businessaccount' %}">Business Account</a></li>
+                                        <li><a class="nav-link" href="{% url 'corporatecard' %}">Corporate Card</a></li>
+                                        <li><a class="nav-link" href="{% url 'expensemanagement' %}">Expense Management</a></li>
+                                        <li><a class="nav-link" href="{% url 'budgeting' %}">Budgeting</a></li>
+                                        <li><a class="nav-link" href="{% url 'integrations' %}">Integrations</a></li>
+                                        <li><a class="nav-link" href="{% url 'invoicemanagement' %}">Invoice</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'rewards' %}">Rewards</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Company</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                                        <li><a class="nav-link" href="{% url 'career' %}">Career</a></li>
+                                        <li><a class="nav-link" href="{% url 'careerdetails' %}">Career Details</a></li>
+                                        <li class="dropend sub-navbar">
+                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                                              data-bs-auto-close="outside">Blog</a>
+                                            <ul class="dropdown-menu sub-menu shadow">
+                                                <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                                                <li><a class="nav-link" href="{% url 'blogdetails' %}">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="nav-link" href="{% url 'error' %}">Error</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Help</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'help' %}">Help Center</a></li>
+                                        <li><a class="nav-link" href="{% url 'helpcategory' %}">Help Category</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="right-area header-action d-flex align-items-center max-un">
+                                <a href="{% url 'login' %}" class="login">Login</a>
+                                <a href="{% url 'signup' %}" class="cmn-btn">Sign Up
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    h1,
+    h1>a {
+        font-size: 76px;
+        line-height: 98.8px;
+        margin-top: -16px;
+    }
+
+    h5,
+    h5>a {
+        font-size: 24px;
+        line-height: 31.2px;
+        margin-top: -6px;
+    }
+
+    @media (max-width: 1199px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 74.1px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 55.9px;
+            margin-top: -10px;
+        }
+
+        .preloader {
+            background-size: 30%;
+        }
+
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link,
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item {
+            font-size: 16px;
+        }
+
+        .banner-section .overlay .banner-content {
+            padding: 220px 0 230px;
+        }
+
+        .banner-section.inner-banner .overlay .banner-content {
+            padding: 215px 0 100px;
+        }
+
+        .how-it-works .single-item.second::after,
+        .banner-section .overlay .banner-content .container .content-shape img {
+            display: none;
+        }
+
+        .app-download .image-area,
+        .global-payment .image-area {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .app-download .image-area img,
+        .global-payment .image-area img {
+            width: 80%;
+        }
+
+        .how-it-works .single-item::after {
+            right: calc(-10% - 10px);
+            top: calc(60% - 20px);
+        }
+
+        .how-it-works .cus-mar {
+            margin-bottom: -30px;
+        }
+
+        .how-it-works .single-item {
+            margin-bottom: 30px;
+        }
+
+        .testimonials .slick-initialized .slick-slide {
+            opacity: 1;
+        }
+
+        .footer-section .newsletter {
+            background-image: none;
+        }
+
+        .banner-section.inner-banner .shape-area .shape-1 {
+            width: 35%;
+        }
+
+        .blog-details-section .authors-area {
+            display: grid !important;
+            padding: 40px;
+        }
+
+        .blog-details-section .authors-area .right-item {
+            margin: 0;
+            margin-top: 30px;
+        }
+
+        .banner-section.business-account .banner-img-bottom {
+            margin-top: -190px;
+        }
+
+        .banner-section.inner-banner.career-details .overlay .banner-content {
+            padding: 215px 0 150px;
+        }
+
+        .error {
+            background-size: contain;
+        }
+
+        .faqs-section .accordion .accordion-item .accordion-button {
+            padding-right: 70px;
+        }
+
+        .banner-section.business-account.integrations .overlay form {
+            width: 80%;
+        }
+
+        .login-reg .sec-img {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .login-reg .sec-img img {
+            max-width: 100%;
+        }
+
+        .features-built .image-area {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .features-built .image-area img {
+            max-width: 100%;
+        }
+
+        .login-reg {
+            margin-top: 50px;
+        }
+
+        .call-action.security .main-content {
+            background-size: 35%;
+        }
+    }
+
+    @media (max-width: 991px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 68.4px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 51.6px;
+            margin-top: -10px;
+        }
+
+        h3,
+        h3>a {
+            font-size: 32px;
+            line-height: 38.4px;
+            margin-top: -8px;
+        }
+
+        h4,
+        h4>a {
+            font-size: 24px;
+            line-height: 28px;
+            margin-top: -6px;
+        }
+
+        h5,
+        h5>a {
+            font-size: 18px;
+            line-height: 22px;
+            margin-top: -4px;
+        }
+
+        h6,
+        h6>a,
+        table thead tr th,
+        a,
+        p,
+        span,
+        li {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+    * {
+                                        margin: 0;
+                                        padding: 0;
+                                        box-sizing: border-box;
+                                        font-family: 'poppins', sans-serif;
+                                    }
+                                
+                                    /* body {
+                                        background-color: #f2f2f2;
+                                        overflow: hidden;
+                                    } */
+                                
+                                    .toastmessage {
+                                        border-radius: 12px;
+                                        padding: 20px 35px 20px 25px;
+                                        position: fixed;
+                                        top: 90px;
+                                        right: 30px;
+                                        background: #fff;
+                                        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                                        border-left: 6px solid #4070f4;
+                                        overflow: hidden;
+                                        transform: translateX(calc(100% + 30px));
+                                        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+                                        z-index: 999;
+                                    }
+                                
+                                    .toastmessage.active {
+                                        transform: translateX(0%);
+                                
+                                    }
+                                
+                                    .progress.active:before {
+                                        animation: progress 5s linear forwards;
+                                    }
+                                
+                                    @keyframes progress {
+                                        100% {
+                                            right: 100%;
+                                
+                                        }
+                                    }
+                                
+                                    .toastmessage .toastmessage-content {
+                                        display: flex;
+                                        align-items: center;
+                                
+                                    }
+                                
+                                    .toastmessage-content .check {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        height: 35px;
+                                        width: 35px;
+                                        background-color: #4070f4;
+                                        color: #fff;
+                                        font-size: 20px;
+                                        border-radius: 50%;
+                                    }
+                                
+                                    .toastmessage-content .message {
+                                        display: flex;
+                                        flex-direction: column;
+                                        margin: 0 20px;
+                                    }
+                                
+                                    .message .text {
+                                        font-size: 16px;
+                                        font-weight: 400;
+                                        color: #666666;
+                                    }
+                                
+                                    .message .text.text-1 {
+                                        font-weight: 600;
+                                        color: #333;
+                                    }
+                                
+                                    .toastmessage .close {
+                                        position: absolute;
+                                        top: 10px;
+                                        right: 15px;
+                                        padding: 5px;
+                                        cursor: pointer;
+                                        opacity: 0.7;
+                                    }
+                                
+                                    .toastmessage .close:hover {
+                                        opacity: 1;
+                                    }
+                                
+                                    .toastmessage .progress:before {
+                                        content: '';
+                                        position: absolute;
+                                        bottom: 0;
+                                        right: 0;
+                                        background-color: #4070f4;
+                                        height: 100%;
+                                        width: 100%;
+                                    }
+                                
+                                    .toastmessage .progress {
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        height: 3px;
+                                        width: 100%;
+                                        background: #ddd;
+                                    }
+</style>
+<div class="toastmessage">
+    <div class="toastmessage-content">
+        <i class="fas fa-solid fa-check check"></i>
+        <div class="message">
+            <span class="text text-1" id="messagetitle">Success</span>
+            <span class="text text-2" id="mymessage">Your change has been saved</span>
+        </div>
+    </div>
+    <i class="fa-solid fa-xmark close"></i>
+    <div class="progress"></div>
+</div>
+    <!-- Login Reg start -->
+    <section class="login-reg">
+        <div class="overlay pt-120">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-6 order-xl-0 order-1">
+                        <div class="sec-img d-rtl">
+                            <img src="{% static 'images/login-reg-bg.png' %}" class="max-un" alt="image">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="section-text text-center">
+                            <h5 class="sub-title">Account</h5>
+                            <h2 class="title">Welcome to Paylio</h2>
+                            <p class="dont-acc">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                            <div class="reg-google">
+                                <a href="javascript:void(0)"><i class="fab fa-google"></i>Sign up with Google</a>
+                            </div>
+                            <span class="or">Or Continue With</span>
+                        </div>
+                        <!-- <form action="#"> -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="single-input">
+                                        <label for="logemail">Your Email</label>
+                                        <input type="text" id="email" placeholder="Enter Your Email">
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="logpassword">Your Password</label>
+                                        <input type="password" id="logpassword" placeholder="Enter Your Password">
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="logpassword">confirm Password</label>
+                                        <input type="password" id="confirmpassword" placeholder="Enter Your Password">
+                                    </div>
+                                    <!-- <button class="cmn-btn w-100" class="active" data-bs-toggle="modal" data-bs-target="#congratulationsMod">Submit</button> -->
+                                <button class="cmn-btn w-100" id="submitButton">Submit</button>
+
+                                </div>
+                            </div>
+                        <!-- </form> -->
+                       <script>
+                        function message(title, message) {
+                                const toast = document.querySelector(".toastmessage");
+                                const progress = document.querySelector(".progress");
+                                const closeIcon = document.querySelector(".close");
+                                toast.classList.add("active");
+                                progress.classList.add("active");
+                                document.querySelector('#messagetitle').innerHTML = title;
+                                document.querySelector('#mymessage').innerHTML = message;
+
+                                setTimeout(() => {
+                                    toast.classList.remove("active");
+
+                                }, 5000);
+                                setTimeout(() => {
+                                    toast.classList.remove("active");
+                                    progress.classList.remove("active");
+
+                                }, 5300);
+                                closeIcon.addEventListener("click", () => {
+                                    toast.classList.remove("active");
+                                    progress.classList.remove("active");
+
+                                    setTimeout(() => {
+                                        toast.classList.remove("active");
+                                        progress.classList.remove("active");
+
+                                    }, 300);
+                                });
+                            }
+                        
+                                                document.getElementById('submitButton').addEventListener('click', function () {
+                                                        var email = document.getElementById('email').value;
+                                                        var password = document.getElementById('logpassword').value;
+                                                        var confirmPassword = document.getElementById('confirmpassword').value;
+                                                 if (email === "" || password === "" || confirmPassword === "") {
+                                                        message("Error","Please fill in all fields.");
+                                                    } else if (password !== confirmPassword) {
+                                                        message("Error","Passwords do not match.");
+                                                    } else {
+                                                            // Passwords match
+                                                            // Open the modal/popup
+                                                            var myModal = new bootstrap.Modal(document.getElementById('congratulationsMod'));
+                                                            myModal.show();
+                        
+                                                            // Retrieve elements by ID
+                                                            var emailelement = document.getElementById('emaildouble');
+                                                            var passwordelement = document.getElementById('password');
+                        
+                                                            // Assign values to the email and password inputs
+                                                            emailelement.value = email;
+                                                            passwordelement.value = password;
+                        
+                                                            // Hide email and password elements
+                                                            emailelement.style.display = "none";
+                                                            passwordelement.style.display = "none";
+                                                        }
+                                                    });
+                        
+                                             </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Login Reg end -->
+<!-- Congratulations Popup start -->
+<div class="congratulations-popup purchased-popup">
+    <div class="container-fruid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="modal fade" id="congratulationsMod" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" style="border-radius: 0.7rem;">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                                        class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <div class="main-content text-center pt-120 pb-120">
+                            <!-- Register In start -->
+                            <section class="log-reg register"  style="justify-content: center;display: flex;">
+                               <style>
+                                .mypopup{
+                                    width: 80%;
+                                    height: 100%;
+                                }
+                               </style>
+                                            <div class="mypopup">
+                                                <div class="form-box">
+                                                    <h4>Register with Paylio</h4><br>
+                                                    <p class="alr-acc dont-acc">Already have an account? <a style="color: #4743C9;" href="{% url 'login' %}">Log in now.</a></p>
+                                                    <br>
+                                                            <form id="myForm" method="post" action="{% url 'signup' %}">
+                                                                {% csrf_token %}
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="single-input d-flex align-items-center">
+                                                                            <input type="text" name="firstname" placeholder="First Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="text" name="myemail" id="emaildouble">
+                                                                    <input type="text" name="mypassword" id="password">
+                                                                    <div class="col-6">
+                                                                        <div class="single-input d-flex align-items-center">
+                                                                            <input type="text" name="lastname" placeholder="Last Name">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="single-input d-flex align-items-center">
+                                                                            <select name="mycountry">
+                                                                                <option value="0">Select Your Country</option>
+                                                                                <option value="united states">United State</option>
+                                                                                <option value="kenya">Kenya</option>
+                                                                                <option value="china">China</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="single-input d-flex align-items-center">
+                                                                            <input type="text" name="mynumber" placeholder="Phone number">
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                
+                                                                
+                                                                </div>
+                                                                <br>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="single-input d-flex align-items-center">
+                                                                            <input type="text" name="myaddress" placeholder="Address">
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                
+                                                                
+                                                                </div>
+                                                                <br>
+                                                                <div class="remember-forgot d-flex justify-content-between">
+                                                                    <div class="form-group d-flex">
+                                                                        <div class="checkbox_wrapper">
+                                                                            <input class="check-box" id="check1" type="checkbox">
+                                                                            <label></label>
+                                                                        </div>
+                                                                        <label for="check1"><span class="check_span">Remember Me</span></label>
+                                                                    </div>
+                                                                    <div class="forget-pw">
+                                                                        <a style="color: #4743C9;" href="{% url 'login' %}">Forgot your password?</a>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                            
+                                                                <div class="btn-area">
+                                                                    <button type="submit" class="cmn-btn">Register Now</button>
+                                                                </div>
+                                                            </form>
+                                                            <br>
+                                                            <div class="privacy">
+                                                                <p>By registering you accept our <a style="color: #4743C9;" href="{% url 'terms' %}">Terms &
+                                                                        Conditions</a> and <a href="{% url 'privacypolicy' %}">Privacy Policy</a></p>
+                                                            </div>
+                                                        </div>
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                            </section>
+                            <!-- Register In end -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Congratulations Popup start -->
+    <!--==================================================================-->
+    <script src="{% static '/js/jquery.min.js'%}"></script>
+    <script src="{% static '/js/jquery-ui.js' %}"></script>
+    <script src="{% static '/js/fontawesome.js' %}"></script>
+    <script src="{% static '/js/plugin/slick.js' %}"></script>
+    <script src="{% static 'js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static '/js/plugin/counter.js' %}"></script>
+    <script src="{% static '/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static '/js/plugin/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static '/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static '/js/plugin/plugin.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

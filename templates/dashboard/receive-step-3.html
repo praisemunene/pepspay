@@ -1,0 +1,479 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paylio - Money Transfer and Online Payments Dashboard HTML Template</title>
+
+    <link rel="shortcut icon" href="{% static 'assets/images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/apexcharts.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+{% if logged_in_user %}
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+<script>
+    function formatDateToLocale(dateString) {
+        const options = { day: 'numeric', month: 'short' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+    function formatTimeToAMPM(dateString) {
+        const date = new Date(dateString);
+        let hours = date.getHours();
+        const minutes = date.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 12-hour clock format
+
+        const formattedTime = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+        return formattedTime;
+    }
+
+
+
+    function getnotifications() {
+        fetch(`notifications`)
+            .then(response => response.json())
+            .then(data => {
+                const notifications = data.success;
+
+                if (notifications) {
+                    let content = '';
+                    notifications.forEach(notification => {
+                        // Format the time using JavaScript Date object
+                        const formattedTime = new Date(notification.time).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            hour12: true
+                        });
+                        const url = `/dashboard/${notification.url}`;
+                        if (notification.senderemail == notification.myemail) {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">you have sent <b>${notification.amount}</b> to <b>${notification.name}</b></p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                        else if (notification.recipientemail == notification.myemail) {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">you have recieved <b>${notification.amount}</b> from <b>${notification.senderemail}</b></p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                        else {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">${notification.notification}</p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                    });
+
+                    // Append generated content to the table body
+                    document.getElementById('notificationTableBody').innerHTML = content;
+                } else {
+                    console.log('No notifications found');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    // Call the function on document load
+    document.addEventListener('DOMContentLoaded', function () {
+        getnotifications();
+    });
+</script>
+    <!-- header-section start -->
+    <header class="header-section body-collapse">
+        <div class="overlay">
+            <div class="container-fruid">
+                <div class="row d-flex header-area">
+                    <div class="navbar-area d-flex align-items-center justify-content-between">
+                        <div class="sidebar-icon">
+                            <img src="{% static 'assets/images/icon/menu.png' %}" alt="icon">
+                        </div>
+                        <form action="#" class="flex-fill">
+                            <div class="form-group d-flex align-items-center">
+                                <img src="{% static 'assets/images/icon/search.png' %}" alt="icon">
+                                <input type="text" placeholder="Type to search...">
+                            </div>
+                        </form>
+                        <div class="dashboard-nav">
+                            <div class="single-item language-area">
+                                <div class="language-btn">
+                                    <img src="{% static 'assets/images/icon/lang.png' %}" alt="icon">
+                                </div>
+                                <ul class="main-area language-content">
+                                    <li>English</li>
+                                    <li>Hindi</li>
+                                    <li class="active">English (US)</li>
+                                    <li>Japanese</li>
+                                    <li>Kannada</li>
+                                    <li>Lithuanian</li>
+                                </ul>
+                            </div>
+                            <div class="single-item notifications-area">
+                                <div class="notifications-btn">
+                                    <img src="{% static 'assets/images/icon/bell.png' %}" class="bell-icon" alt="icon">
+                                </div>
+                                <div class="main-area notifications-content">
+                                    <div class="head-area d-flex justify-content-between">
+                                        <h5>Notifications</h5>
+                                        <span class="mdr">4</span>
+                                    </div>
+                                    <ul id="notificationTableBody">
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-item user-area">
+                                <div class="profile-area d-flex align-items-center">
+                                    <span class="user-profile">
+                                            {% if logged_in_user.image_url %}
+                                            <img style="width: 40px;height: 40px;border-radius: 50%;" src="{{logged_in_user.image_url}}" alt="image">
+                                            {% else %}
+                                            <img src="{% static 'assets/images/avatar.png' %}" alt="">
+                                            {% endif %}
+                                    </span>
+                                    <i class="fa-solid fa-sort-down"></i>
+                                </div>
+                                <div class="main-area user-content">
+                                    <div class="head-area d-flex align-items-center">
+                                        <div class="profile-img">
+                                                {% if logged_in_user.image_url %}
+                                                <img style="width: 50px;height: 50px;border-radius: 50%;" src="{{logged_in_user.image_url}}" alt="image">
+                                                {% else %}
+                                                <img src="{% static 'assets/images/avatar.png' %}" alt="">
+                                                {% endif %}
+                                        </div>
+                                        <div class="profile-head">
+                                            <a href="javascript:void(0)">
+                                                <h5>{{logged_in_user.firstname}} {{logged_in_user.lastname}}</h5>
+                                            </a>
+                                            <p class="wallet-id">Wallet ID: 6264849965</p>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="border-area">
+                                            <a href="{% url 'account' %}"><i class="fas fa-cog"></i>Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'logout' %}"><i class="fas fa-sign-out"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-wrapper">
+                        <div class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <div class="sidebar-logo">
+                            <a href="{% url 'dashboard' %}"><img style="width: 20px;margin-left: -5px;" src="{% static 'assets/images/logo.png' %}"
+                                    alt="logo"><span style="color: #5927E3;padding-left: 3px;font-size: 19px;font-weight: bold;">EPS</span><span
+                                    style="font-weight: bold;font-size: 19px;color: #D8481B;">PAY</span></a>
+
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="{% url 'dashboard' %}">
+                                    <img src="{% static 'assets/images/icon/dashboard.png' %}" alt="Dashboard"> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'transactions' %}">
+                                    <img src="{% static 'assets/images/icon/transactions.png' %}" alt="Transactions"> <span>Transactions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'pay' %}">
+                                    <img src="{% static 'assets/images/icon/pay.png' %}" alt="Pay"> <span>Pay</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="{% url 'receive1' %}">
+                                    <img src="{% static 'assets/images/icon/receive.png' %}" alt="Receive"> <span>Receive</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'moneyexchange' %}">
+                                    <img src="{% static 'assets/images/icon/exchange.png' %}" alt="Exchange"> <span>Exchange</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'recipients' %}">
+                                    <img src="{% static 'assets/images/icon/recipients.png' %}" alt="Recipients"> <span>Recipients</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'crypto' %}">
+                                    <img src="{% static 'assets/images/icon/crypto.png' %}" alt="Crypto"> <span>Crypto</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'depositmoney' %}">
+                                    <img src="{% static 'assets/images/icon/deposit.png' %}" alt="Deposit"> <span>Deposit Money</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'withdraw1' %}">
+                                    <img src="{% static 'assets/images/icon/withdraw.png' %}" alt="Withdraw"> <span>Withdraw Money</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="bottom-item">
+                            <li>
+                                <a href="{% url 'account' %}">
+                                    <img src="{% static 'assets/images/icon/account.png' %}" alt="Account"> <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="{% static 'assets/images/icon/support.png' %}" alt="Support"> <span>Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="{% static 'assets/images/icon/quit.png' %}" alt="Quit"> <span>Quit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="pt-120">
+                            <div class="invite-now">
+                                <div class="img-area">
+                                    <img src="{% static 'assets/images/invite-now-illus.png' %}" alt="Image">
+                                </div>
+                                <p>Invite your friend and get $25</p>
+                                <a href="javascript:void(0)" class="cmn-btn">Invite Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+    <!-- Dashboard Section start -->
+    <section class="dashboard-section body-collapse pay step step-2 step-3 receive-3">
+        <div class="overlay pt-120">
+            <div class="container-fruid">
+                <div class="main-content">
+                    <div class="head-area d-flex align-items-center justify-content-between">
+                        <h4>Request a Payment</h4>
+                        <div class="icon-area">
+                            <img src="{% static 'assets/images/icon/support-icon.png' %}" alt="icon">
+                        </div>
+                    </div>
+                    <div class="choose-recipient">
+                        <div class="step-area">
+                            <span class="mdr">Step 3 of 4</span>
+                            <h5>Attach Documents</h5>
+                        </div>
+                        <div class="user-select">
+                            <div class="single-user">
+                                <div class="left d-flex align-items-center">
+                                    <div class="img-area">
+                                        <img src="{% static 'assets/images/profile-1.png' %}" alt="image">
+                                    </div>
+                                    <div class="text-area">
+                                        <p>Herman Tran</p>
+                                        <span class="mdr">Herman35@gmail.com</span>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <a href="javascript:void(0)">
+                                        <i class="icon-g-tick"></i>
+                                        Choose
+                                    </a>
+                                    <a href="javascript:void(0)">
+                                        <i class="icon-h-edit"></i>
+                                        Edit
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-details">
+                        <div class="top-area">
+                            <h6>Payment Details</h6>
+                            <div class="right">
+                                <a href="javascript:void(0)">
+                                    <i class="icon-h-edit"></i>
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-8">
+                                <ul class="details-list">
+                                    <li>
+                                        <span>Amount</span>
+                                        <b>400.00 GBP</b>
+                                    </li>
+                                    <li>
+                                        <span>Description</span>
+                                        <b>Software Development</b>
+                                    </li>
+                                    <li>
+                                        <span>Requested as</span>
+                                        <b>{{logged_in_user.firstname}} {{logged_in_user.lastname}}</b>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attach-documents">
+                        <div class="top-area">
+                            <h6>Attach documents</h6>
+                            <p>Attach up to 5 documents ( like your invoice or work contact) to your payment request.</p>
+                            <div class="file-upload">
+                                <div class="right-area">
+                                    <label class="file">
+                                        <input type="file">
+                                        <span class="file-custom"></span>
+                                        <span class="file-custom2"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-area mt-40">
+                        <a href="javascript:void(0)">Preview</a>
+                        <a href="{% url 'paymentsubmitted' %}" class="active">Request Payment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dashboard Section end -->
+    
+    <!-- Transfer Popup start -->
+    <div class="transfer-popup">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="transferMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <ul class="nav nav-tabs d-none" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="transfer-tab" data-bs-toggle="tab"
+                                        data-bs-target="#transfer" type="button" role="tab" aria-controls="transfer"
+                                        aria-selected="true">transfer</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="success-tab" data-bs-toggle="tab"
+                                        data-bs-target="#success" type="button" role="tab" aria-controls="success"
+                                        aria-selected="false">Confirm</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="transfer" role="tabpanel" aria-labelledby="transfer-tab">
+                                    <div class="modal-content">
+                                        <div class="modal-header mb-60 justify-content-between">
+                                            <a href="javascript:void(0)">
+                                                <i class="icon-a-left-arrow"></i>
+                                                Back
+                                            </a>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                        </div>
+                                        <div class="main-content">
+                                            <h4>Confirm Transfer!</h4>
+                                            <p>We have sent a verification code on your phone + Number  +44831***932. Please enter verification code below</p>
+                                            <form action="javascript:void(0)">
+                                                <div class="userInput">
+                                                    <input type="text">
+                                                    <input type="text">
+                                                    <input type="text">
+                                                    <input type="text">
+                                                </div>
+                                                <a href="javascript:void(0)">Don’t receive a code?</a>
+                                                <button class="mt-60 confirm">Confirm</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="success" role="tabpanel" aria-labelledby="success-tab">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close d-md-none d-block" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                        </div>
+                                        <div class="main-content text-center pt-120 pb-120">
+                                            <img src="{% static 'assets/images/icon/success.png' %}" alt="icon">
+                                            <h3>Success</h3>
+                                            <p>Transfer was completed.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Transactions Popup start -->
+{% endif %}
+    <!--==================================================================-->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/apexcharts.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/plugin.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>

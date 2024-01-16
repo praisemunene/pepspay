@@ -1,0 +1,1004 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PepsPay - Money Transfer and Online Payments HTML Template</title>
+
+    <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugin/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugin/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    
+
+
+
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex header-area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <img style="margin-left: -5px;margin-top: -10px;" src="{% static 'images/logo.png' %}" alt="logo"><span
+            style="color: #4743c9;padding-left: 3px;font-size: 27px;font-weight: bolder;">EPS</span><span
+            style="font-weight: bolder;font-size: 27px;color: #0d6efd;">PAY</span>
+    </a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbar-content">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Personal</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Freelancer Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'subscriptions' %}">Subscriptions</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Business</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Business Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'businessaccount' %}">Business Account</a></li>
+                                        <li><a class="nav-link" href="{% url 'corporatecard' %}">Corporate Card</a></li>
+                                        <li><a class="nav-link" href="{% url 'expensemanagement' %}">Expense Management</a></li>
+                                        <li><a class="nav-link" href="{% url 'budgeting' %}">Budgeting</a></li>
+                                        <li><a class="nav-link" href="{% url 'integrations' %}">Integrations</a></li>
+                                        <li><a class="nav-link" href="{% url 'invoicemanagement' %}">Invoice</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'rewards' %}">Rewards</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Company</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                                        <li><a class="nav-link" href="{% url 'career' %}">Career</a></li>
+                                        <li><a class="nav-link" href="{% url 'careerdetails' %}">Career Details</a></li>
+                                        <li class="dropend sub-navbar">
+                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                                              data-bs-auto-close="outside">Blog</a>
+                                            <ul class="dropdown-menu sub-menu shadow">
+                                                <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                                                <li><a class="nav-link" href="{% url 'blogdetails' %}">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="nav-link" href="{% url 'error' %}">Error</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Help</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'help' %}">Help Center</a></li>
+                                        <li><a class="nav-link" href="{% url 'helpcategory' %}">Help Category</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="right-area header-action d-flex align-items-center max-un">
+                                <a href="{% url 'login' %}" class="login">Login</a>
+                                <a href="{% url 'signup' %}" class="cmn-btn">Sign Up
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- header-section end -->
+
+    <!-- Banner Section start -->
+    <section class="banner-section index">
+        <div class="overlay">
+            <div class="shape-area">
+                <img src="{% static 'images/banner-box.png' %}" class="obj-1" alt="image">
+                <img src="{% static 'images/banner-human.png' %}" class="obj-2" alt="image">
+                <img src="{% static 'images/banner-rocket.png' %}" class="obj-3" alt="image">
+                <img src="{% static 'images/banner-clock.png' %}" class="obj-4" alt="image">
+            </div>
+            <div class="banner-content">
+                <div class="container wow fadeInUp">
+                    <div class="content-shape">
+                        <img src="{% static 'images/banner-wallet.png' %}" class="obj-1" alt="image">
+                    </div>
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-5 col-md-6">
+                            <div class="main-content">
+                                <div class="top-area section-text">
+                                    <h5 class="sub-title">Trusted by over 3M customers</h5>
+                                    <h1 class="title">Pay Anyone, Anywhere</h1>
+                                    <p class="xlr">Quickly and easily send, receive and request money online with Paylio. Get a customised solution to fit your business needs.</p>
+                                </div>
+                                <div class="bottom-area d-xxl-flex">
+                                    <a href="{% url 'signup' %}" class="cmn-btn">Open a Free Account</a>
+                                    <a class="cmn-btn active mfp-iframe popupvideo" href="https://www.youtube.com/watch?v=Djz8Nc0Qxwk">See How it Works</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-5 col-md-6">
+                            <div class="send-money">
+                                <form action="#">
+                                    <div class="currency-area">
+                                        <div class="left-side">
+                                            <span class="mdr">You send</span>
+                                            <input type="text" autocomplete="off" class="xlr" id="amount" placeholder="Enter Amount" value="">
+                                        </div>
+                                        <div class="right-side">
+                                            <select>
+                                                <option value="1">USD</option>
+                                                <option value="2">GBP</option>
+                                                <option value="3">AUS</option>
+                                                <option value="4" id="changeBakground">KES</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="calculation">
+                                        <div class="head-area">
+                                            <img src="{% static 'images/icon/conversion.png' %}" alt="image">
+                                            <span class="mdr highlight">Show calculation</span>    
+                                        </div>
+                                        <div class="calculation-details">
+                                            <div class="single-area d-flex align-items-center">
+                                                <div class="left-area">
+                                                    <i class="fas fa-minus"></i>
+                                                    <span class="mdr" id="fee">NaN</span>
+                                                </div>
+                                                <div class="right-area">
+                                                    <span class="mdr">Our fee</span>
+                                                </div>
+                                            </div>
+                                            <div class="single-area d-flex align-items-center">
+                                                <div class="left-area">
+                                                    <i class="fas fa-equals"></i>
+                                                    <span class="mdr" id="equalamount">NaN</span>
+                                                </div>
+                                                <div class="right-area">
+                                                    <span class="mdr">We’ll Convert</span>
+                                                </div>
+                                            </div>
+                                            <div class="single-area d-flex align-items-center">
+                                                <div class="left-area">
+                                                    <i class="fas fa-times"></i>
+                                                    <span class="mdr" id="rate">150.947</span>
+                                                </div>
+                                                <div class="right-area">
+                                                    <span class="mdr highlight">Paylio Rate</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="currency-area">
+                                        <div class="left-side">
+                                            <span class="mdr">Recipient gets</span>
+                                            <h5 id="convertedAmount"></h5>
+                                        </div>
+
+
+                                        <script>
+                                            let rate = document.getElementById("rate");
+                                            let amount = document.getElementById("amount")
+                                            let fee = document.getElementById("fee")
+                                            let equalamount = document.getElementById("equalamount")
+                                            let convertedAmount = document.getElementById("convertedAmount")
+
+                                            amount.addEventListener('input', function () {
+                                                let value = amount.value * rate.innerText;
+                                                let feevalue = amount.value * 0.025;
+                                                convertedAmount.textContent = value.toFixed(3);
+                                                fee.textContent = feevalue.toFixed(2) + "USD";
+                                                equalamount.textContent = amount.value + "USD";
+                                            });
+                                        </script>
+                                        <div class="right-side recipient">
+                                            <select>
+                                                <option value="1">AUS</option>
+                                                <option value="2">USD</option>
+                                                <option value="3">GBP</option>
+                                                <option value="4">KES</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="btn-area mt-40">
+                                        <a href="javascript:void(0)" class="cmn-btn w-100">Get Started</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<style>
+    a{
+        text-decoration: none;
+    }
+ h1, h1 > a {
+    font-size: 76px;
+    line-height: 98.8px;
+    margin-top: -16px;
+  }
+
+   h5, h5 > a {
+    font-size: 24px;
+    line-height: 31.2px;
+    margin-top: -6px;
+  }
+
+@media (max-width: 1199px) {
+  h1, h1 > a {
+    font-size: 57px;
+    line-height: 74.1px;
+    margin-top: -16px;
+  }
+  h2, h2 > a {
+    font-size: 43px;
+    line-height: 55.9px;
+    margin-top: -10px;
+  }
+  .preloader {
+    background-size: 30%;
+  }
+  .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link,
+  .header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item {
+    font-size: 16px;
+  }
+  .banner-section .overlay .banner-content {
+    padding: 220px 0 230px;
+  }
+  .banner-section.inner-banner .overlay .banner-content {
+    padding: 215px 0 100px;
+  }
+  .how-it-works .single-item.second::after,
+  .banner-section .overlay .banner-content .container .content-shape img {
+    display: none;
+  }
+  .app-download .image-area,
+  .global-payment .image-area {
+    margin-top: 60px;
+    text-align: center;
+  }
+  .app-download .image-area img,
+  .global-payment .image-area img {
+    width: 80%;
+  }
+  .how-it-works .single-item::after {
+    right: calc(-10% - 10px);
+    top: calc(60% - 20px);
+  }
+  .how-it-works .cus-mar {
+    margin-bottom: -30px;
+  }
+  .how-it-works .single-item {
+    margin-bottom: 30px;
+  }
+  .testimonials .slick-initialized .slick-slide {
+    opacity: 1;
+  }
+  .footer-section .newsletter {
+    background-image: none;
+  }
+  .banner-section.inner-banner .shape-area .shape-1 {
+    width: 35%;
+  }
+  .blog-details-section .authors-area {
+    display: grid !important;
+    padding: 40px;
+  }
+  .blog-details-section .authors-area .right-item {
+    margin: 0;
+    margin-top: 30px;
+  }
+  .banner-section.business-account .banner-img-bottom {
+    margin-top: -190px;
+  }
+  .banner-section.inner-banner.career-details .overlay .banner-content {
+    padding: 215px 0 150px;
+  }
+  .error {
+    background-size: contain;
+  }
+  .faqs-section .accordion .accordion-item .accordion-button {
+    padding-right: 70px;
+  }
+  .banner-section.business-account.integrations .overlay form {
+    width: 80%;
+  }
+  .login-reg .sec-img {
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+  }
+  .login-reg .sec-img img {
+    max-width: 100%;
+  }
+  .features-built .image-area {
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+  }
+  .features-built .image-area img {
+    max-width: 100%;
+  }
+  .login-reg {
+    margin-top: 50px;
+  }
+  .call-action.security .main-content {
+    background-size: 35%;
+  }
+}
+
+@media (max-width: 991px) {
+  h1, h1 > a {
+    font-size: 57px;
+    line-height: 68.4px;
+    margin-top: -16px;
+  }
+  h2, h2 > a {
+    font-size: 43px;
+    line-height: 51.6px;
+    margin-top: -10px;
+  }
+  h3, h3 > a {
+    font-size: 32px;
+    line-height: 38.4px;
+    margin-top: -8px;
+  }
+  h4, h4 > a {
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: -6px;
+  }
+  h5, h5 > a {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: -4px;
+  }
+  h6, h6 > a, table thead tr th, a, p, span, li {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+</style>
+
+
+        <div class="counter-section">
+            <div class="container wow fadeInUp">
+                <div class="row cus-mar">
+                    <div class="col-xl-3 col-md-3 col-sm-6">
+                        <div class="single-area d-flex align-items-center justify-content-center">
+                            <div class="text-area text-center">
+                                <h2><span class="counter">50</span><span>+</span></h2>
+                                <p>Supported Currencies</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-3 col-sm-6">
+                        <div class="single-area d-flex align-items-center justify-content-center">
+                            <div class="text-area text-center">
+                                <h2><span class="counter">100</span><span>+</span></h2>
+                                <p>Available Countries</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-3 col-sm-6">
+                        <div class="single-area d-flex align-items-center justify-content-center">
+                            <div class="text-area text-center">
+                                <h2><span class="counter">70</span><span>+</span></h2>
+                                <p>Payment Methods</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-3 col-sm-6">
+                        <div class="single-area d-flex align-items-center justify-content-center">
+                            <div class="text-area text-center">
+                                <h2><span class="counter">7</span><span>/</span><span class="counter">24</span><span>+</span></h2>
+                                <p>Support Team</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section end -->
+
+    <!-- Global Payment start -->
+    <section class="global-payment">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Send money in a heartbeat</h5>
+                            <h2 class="title">The World At Your Fingertips</h2>
+                            <p>Sign up to start saving on international money transfers and currency exchange.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xxl-6 col-xl-5 order-xl-0 order-1">
+                        <div class="image-area d-rtl left-side">
+                            <img src="{% static 'images/global-payment-img.png' %}" alt="images" class="max-un">
+                        </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-7">
+                        <div class="row cus-mar">
+                            <div class="col-sm-6 col-6">
+                                <div class="single-item">
+                                    <img src="{% static 'images/icon/global-payment-icon-1.png' %}" alt="icon">
+                                    <h5>Peace of Mind</h5>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-6">
+                                <div class="single-item">
+                                    <img src="{% static 'images/icon/global-payment-icon-2.png' %}" alt="icon">
+                                    <h5>Business-Ready</h5>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-6">
+                                <div class="single-item">
+                                    <img src="{% static 'images/icon/global-payment-icon-3.png' %}" alt="icon">
+                                    <h5>100% Transparent</h5>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-6">
+                                <div class="single-item">
+                                    <img src="{% static 'images/icon/global-payment-icon-4.png' %}" alt="icon">
+                                    <h5>International Network</h5>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Global Payment end -->
+
+    <!-- Our Solutions start -->
+    <section class="our-solutions">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-header dark-sec text-center">
+                            <h5 class="sub-title">High speeds. Low fees. No hassle.</h5>
+                            <h2 class="title">All Your Payments In One Place</h2>
+                            <p>Get used to low fees and great exchange rates on international money transfers.Expand your business worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-xl-3 col-6">
+                        <div class="single-item">
+                            <img src="{% static 'images/icon/our-solutions-icon-1.png' %}" alt="icon">
+                            <h5>Payments</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-6">
+                        <div class="single-item">
+                            <img src="{% static 'images/icon/our-solutions-icon-2.png' %}" alt="icon">
+                            <h5>Collections</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-6">
+                        <div class="single-item">
+                            <img src="{% static 'images/icon/our-solutions-icon-3.png' %}" alt="icon">
+                            <h5>Conversions</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-6">
+                        <div class="single-item">
+                            <img src="{% static 'images/icon/our-solutions-icon-4.png' %}" alt="icon">
+                            <h5>Global Account</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Solutions end -->
+
+    <!-- How it Works start -->
+    <section class="how-it-works">
+        <div class="overlay pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">How it works?</h5>
+                            <h2 class="title">Just few steps to start</h2>
+                            <p>It's easier than you think. Follow 3 simple easy steps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <div class="single-item first text-center">
+                            <img src="{% static 'images/icon/how-works-icon-1.png' %}" alt="icon">
+                            <h5>Register for free</h5>
+                            <p>Simply sign up online for free and verify your identity</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <div class="single-item second text-center">
+                            <img src="{% static 'images/icon/how-works-icon-2.png' %}" alt="icon">
+                            <h5>Set up your transfer</h5>
+                            <p>Add a recipient's details and choose which currency ...</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <div class="single-item first text-center">
+                            <img src="{% static 'images/icon/how-works-icon-3.png' %}" alt="icon">
+                            <h5>Make your payment</h5>
+                            <p>Send us your funds with a bank transfer and we'll notify..</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-6">
+                        <div class="single-item text-center">
+                            <img src="{% static 'images/icon/how-works-icon-4.png' %}" alt="icon">
+                            <h5>You're all done!</h5>
+                            <p>We inform you when the money has been sent and can also ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it Works end -->
+
+    <!-- App Download start -->
+    <section class="app-download">
+        <div class="overlay pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-6 order-lg-0 order-1">
+                        <div class="image-area d-rtl left-side">
+                            <img src="{% static 'images/app-download-img.png' %}" alt="images" class="max-un">
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="section-area">
+                            <h5 class="sub-title">App Download</h5>
+                            <h2 class="title">Fast, Secure Money Transfers</h2>
+                            <p>Access your account via your mobile phone. View balance, transfer funds, view transactions wherever you are.</p>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <img src="{% static 'images/icon/check.png' %}" alt="icon">
+                                Login with fingerprint or Face ID.
+                            </li>
+                            <li>
+                                <img src="{% static 'images/icon/check.png' %}" alt="icon">
+                                Simple few Taps to send money
+                            </li>
+                            <li>
+                                <img src="{% static 'images/icon/check.png' %}" alt="icon">
+                                View transaction history.
+                            </li>
+                            <li>
+                                <img src="{% static 'images/icon/check.png' %}" alt="icon">
+                                Get instant App notifications.
+                            </li>
+                        </ul>
+                        <div class="brand-area mt-40">
+                            <a href="javascript:void(0)">
+                                <img src="{% static 'images/GooglePlay-btn.png' %}" alt="icon">
+                            </a>
+                            <a href="javascript:void(0)">
+                                <img src="{% static 'images/apple-btn.png' %}" alt="icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- App Download end -->
+
+    <!-- Testimonials start -->
+    <section class="testimonials">
+        <div class="overlay pt-120 pb-120">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Testimonials</h5>
+                            <h2 class="title">What Our Customers Say</h2>
+                            <p>245m+ happy clients all around the world. Don’t just take our word for it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid wow fadeInUp">
+                <div class="testimonials-carousel">
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-1.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Aspen Press</h5>
+                                    <p>Web Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-2.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Courtney Henry</h5>
+                                    <p>Balance Studio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-3.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Paul Howell</h5>
+                                    <p>President of Sales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-2.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Courtney Henry</h5>
+                                    <p>Balance Studio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- App Download end -->
+
+    <!-- FAQs In start -->
+    <section class="faqs-section">
+        <div class="overlay pt-120 pb-120">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Frequently Asked Questions</h5>
+                            <h2 class="title">If you got questions we have answer</h2>
+                            <p>We have a list of frequently asked questions about us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-lg-6">
+                        <div class="accordion" id="accordionLeft">
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingLeftOne">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseLeftOne"
+                                        aria-expanded="false" aria-controls="collapseLeftOne">
+                                        How to send money online?
+                                    </button>
+                                </h6>
+                                <div id="collapseLeftOne" class="accordion-collapse collapse"
+                                    aria-labelledby="headingLeftOne" data-bs-parent="#accordionLeft">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingLeftTwo">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseLeftTwo"
+                                        aria-expanded="false" aria-controls="collapseLeftTwo">
+                                        How much are money transfer fees?
+                                    </button>
+                                </h6>
+                                <div id="collapseLeftTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="headingLeftTwo" data-bs-parent="#accordionLeft">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingLeftThree">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseLeftThree"
+                                        aria-expanded="false" aria-controls="collapseLeftThree">
+                                        What is the fastest way to send money abroad?
+                                    </button>
+                                </h6>
+                                <div id="collapseLeftThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingLeftThree" data-bs-parent="#accordionLeft">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingLeftFour">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseLeftFour"
+                                        aria-expanded="false" aria-controls="collapseLeftFour">
+                                        How to use Paylio?
+                                    </button>
+                                </h6>
+                                <div id="collapseLeftFour" class="accordion-collapse collapse"
+                                    aria-labelledby="headingLeftFour" data-bs-parent="#accordionLeft">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingLeftFive">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseLeftFive"
+                                        aria-expanded="false" aria-controls="collapseLeftFive">
+                                        How does Paylio protect your money?
+                                    </button>
+                                </h6>
+                                <div id="collapseLeftFive" class="accordion-collapse collapse"
+                                    aria-labelledby="headingLeftFive" data-bs-parent="#accordionLeft">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="accordion" id="accordionRight">
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingRightOne">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseRightOne"
+                                        aria-expanded="false" aria-controls="collapseRightOne">
+                                        Are money transfer apps safe?
+                                    </button>
+                                </h6>
+                                <div id="collapseRightOne" class="accordion-collapse collapse"
+                                    aria-labelledby="headingRightOne" data-bs-parent="#accordionRight">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingRightTwo">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseRightTwo"
+                                        aria-expanded="false" aria-controls="collapseRightTwo">
+                                        How much money can I send?
+                                    </button>
+                                </h6>
+                                <div id="collapseRightTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="headingRightTwo" data-bs-parent="#accordionRight">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingRightThree">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseRightThree"
+                                        aria-expanded="false" aria-controls="collapseRightThree">
+                                        Which currency can I send?
+                                    </button>
+                                </h6>
+                                <div id="collapseRightThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingRightThree" data-bs-parent="#accordionRight">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingRightFour">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseRightFour"
+                                        aria-expanded="false" aria-controls="collapseRightFour">
+                                        Cancel transaction
+                                    </button>
+                                </h6>
+                                <div id="collapseRightFour" class="accordion-collapse collapse"
+                                    aria-labelledby="headingRightFour" data-bs-parent="#accordionRight">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="headingRightFive">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseRightFive"
+                                        aria-expanded="false" aria-controls="collapseRightFive">
+                                        Can I send multiple payments?
+                                    </button>
+                                </h6>
+                                <div id="collapseRightFive" class="accordion-collapse collapse"
+                                    aria-labelledby="headingRightFive" data-bs-parent="#accordionRight">
+                                    <div class="accordion-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit posuere vel venenatis, eu sit massa. Volutpat massa rhoncus odio feugiat tellus elit massa sed ullamcorper a in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQs In end -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="newsletter">
+                        <div class="section-area mb-30 dark-sec text-center">
+                            <h3 class="title">Subscribe to Our Newsletter</h3>
+                        </div>
+                        <form action="#">
+                            <div class="form-group d-flex align-items-center">
+                                <input type="text" placeholder="Your Email Address">
+                                <button><img src="{% static 'images/icon/arrow-right-2.png' %}" alt="icon"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area pt-120">
+                <div class="footer-top">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6 d-flex justify-content-center justify-content-sm-start">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex align-items-center">
+                                    <li><a href="{% url 'about' %}">About Us</a></li>
+                                    <li><a href="{% url 'help' %}">Support</a></li>
+                                    <li><a href="{% url 'fees' %}">Fees</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="social-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/facebook.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/linkedin.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/instagram.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/twitter.png' %}" alt="icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6 col-sm-8 d-flex justify-content-center justify-content-sm-start order-sm-0 order-1">
+                            <div class="copyright text-center text-sm-start">
+                                <p> Copyright © 2022 <a href="{% url 'home' %}">Paylio.</a> All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                    <li><a href="{% url 'terms' %}">Terms</a></li>
+                                    <li><a href="{% url 'privacypolicy' %}">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+    <script src="{% static '/js/jquery.min.js'%}"></script>
+    <script src="{% static '/js/jquery-ui.js' %}"></script>
+    <script src="{% static '/js/fontawesome.js' %}"></script>
+    <script src="{% static '/js/plugin/slick.js' %}"></script>
+    <script src="{% static 'js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static '/js/plugin/counter.js' %}"></script>
+    <script src="{% static '/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static '/js/plugin/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static '/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static '/js/plugin/plugin.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+    <script src="{%static '/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

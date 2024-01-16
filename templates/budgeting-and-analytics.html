@@ -1,0 +1,595 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paylio - Money Transfer and Online Payments HTML Template</title>
+<link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/slick.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'css/arafat-font.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex header-area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+<a class="navbar-brand" href="{% url 'home' %}">
+    <img style="margin-left: -5px;margin-top: -10px;" src="{% static 'images/logo.png' %}" alt="logo"><span
+        style="color: #4743c9;padding-left: 3px;font-size: 27px;font-weight: bolder;">EPS</span><span
+        style="font-weight: bolder;font-size: 27px;color: #0d6efd;">PAY</span>
+</a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbar-content">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Personal</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Freelancer Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'subscriptions' %}">Subscriptions</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Business</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Business Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'businessaccount' %}">Business Account</a></li>
+                                        <li><a class="nav-link" href="{% url 'corporatecard' %}">Corporate Card</a></li>
+                                        <li><a class="nav-link" href="{% url 'expensemanagement' %}">Expense Management</a></li>
+                                        <li><a class="nav-link" href="{% url 'budgeting' %}">Budgeting</a></li>
+                                        <li><a class="nav-link" href="{% url 'integrations' %}">Integrations</a></li>
+                                        <li><a class="nav-link" href="{% url 'invoicemanagement' %}">Invoice</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'rewards' %}">Rewards</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Company</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                                        <li><a class="nav-link" href="{% url 'career' %}">Career</a></li>
+                                        <li><a class="nav-link" href="{% url 'careerdetails' %}">Career Details</a></li>
+                                        <li class="dropend sub-navbar">
+                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                                              data-bs-auto-close="outside">Blog</a>
+                                            <ul class="dropdown-menu sub-menu shadow">
+                                                <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                                                <li><a class="nav-link" href="{% url 'blogdetails' %}">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="nav-link" href="{% url 'error' %}">Error</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Help</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'help' %}">Help Center</a></li>
+                                        <li><a class="nav-link" href="{% url 'helpcategory' %}">Help Category</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="right-area header-action d-flex align-items-center max-un">
+                                <a href="{% url 'login' %}" class="login">Login</a>
+                                <a href="{% url 'signup' %}" class="cmn-btn">Sign Up
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    h1,
+    h1>a {
+        font-size: 76px;
+        line-height: 98.8px;
+        margin-top: -16px;
+    }
+
+    h5,
+    h5>a {
+        font-size: 24px;
+        line-height: 31.2px;
+        margin-top: -6px;
+    }
+
+    @media (max-width: 1199px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 74.1px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 55.9px;
+            margin-top: -10px;
+        }
+
+        .preloader {
+            background-size: 30%;
+        }
+
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link,
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item {
+            font-size: 16px;
+        }
+
+        .banner-section .overlay .banner-content {
+            padding: 220px 0 230px;
+        }
+
+        .banner-section.inner-banner .overlay .banner-content {
+            padding: 215px 0 100px;
+        }
+
+        .how-it-works .single-item.second::after,
+        .banner-section .overlay .banner-content .container .content-shape img {
+            display: none;
+        }
+
+        .app-download .image-area,
+        .global-payment .image-area {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .app-download .image-area img,
+        .global-payment .image-area img {
+            width: 80%;
+        }
+
+        .how-it-works .single-item::after {
+            right: calc(-10% - 10px);
+            top: calc(60% - 20px);
+        }
+
+        .how-it-works .cus-mar {
+            margin-bottom: -30px;
+        }
+
+        .how-it-works .single-item {
+            margin-bottom: 30px;
+        }
+
+        .testimonials .slick-initialized .slick-slide {
+            opacity: 1;
+        }
+
+        .footer-section .newsletter {
+            background-image: none;
+        }
+
+        .banner-section.inner-banner .shape-area .shape-1 {
+            width: 35%;
+        }
+
+        .blog-details-section .authors-area {
+            display: grid !important;
+            padding: 40px;
+        }
+
+        .blog-details-section .authors-area .right-item {
+            margin: 0;
+            margin-top: 30px;
+        }
+
+        .banner-section.business-account .banner-img-bottom {
+            margin-top: -190px;
+        }
+
+        .banner-section.inner-banner.career-details .overlay .banner-content {
+            padding: 215px 0 150px;
+        }
+
+        .error {
+            background-size: contain;
+        }
+
+        .faqs-section .accordion .accordion-item .accordion-button {
+            padding-right: 70px;
+        }
+
+        .banner-section.business-account.integrations .overlay form {
+            width: 80%;
+        }
+
+        .login-reg .sec-img {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .login-reg .sec-img img {
+            max-width: 100%;
+        }
+
+        .features-built .image-area {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .features-built .image-area img {
+            max-width: 100%;
+        }
+
+        .login-reg {
+            margin-top: 50px;
+        }
+
+        .call-action.security .main-content {
+            background-size: 35%;
+        }
+    }
+
+    @media (max-width: 991px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 68.4px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 51.6px;
+            margin-top: -10px;
+        }
+
+        h3,
+        h3>a {
+            font-size: 32px;
+            line-height: 38.4px;
+            margin-top: -8px;
+        }
+
+        h4,
+        h4>a {
+            font-size: 24px;
+            line-height: 28px;
+            margin-top: -6px;
+        }
+
+        h5,
+        h5>a {
+            font-size: 18px;
+            line-height: 22px;
+            margin-top: -4px;
+        }
+
+        h6,
+        h6>a,
+        table thead tr th,
+        a,
+        p,
+        span,
+        li {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+</style>
+
+    <!-- Banner Section start -->
+    <section class="banner-section corporate-card budgeting-analytics">
+        <div class="overlay">
+            <div class="banner-content">
+                <div class="container wow fadeInUp">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-5 col-md-7">
+                            <div class="main-content">
+                                <div class="top-area section-text">
+                                    <h5 class="sub-title">Budgeting and Analytics</h5>
+                                    <h1 class="title">Never Overspend Again</h1>
+                                    <p class="xlr">Take control of your money with smart budgeting and analytics tools</p>
+                                </div>
+                                <div class="bottom-area d-xxl-flex">
+                                    <a href="{% url 'signup' %}" class="cmn-btn">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section end -->
+
+    <!-- Features start -->
+    <section class="earn-cashback features">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row pb-120 align-items-center justify-content-between">
+                    <div class="col-md-6 order-md-0 order-1">
+                        <div class="sec-image">
+                            <img src="{% static 'images/budgeting-analytics-features.png' %}" alt="image" class="w-100">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="section-text">
+                            <h5 class="sub-title">Get pinged to stay on track</h5>
+                            <h2 class="title">Set limits to help you stick to your budget</h2>
+                            <p>We’ll calculate limits to recommend you based on your spending predictions, or simply tell us how much you want to spend</p>
+                        </div>
+                        <div class="bottom-area d-xxl-flex">
+                            <a href="{% url 'signup' %}" class="cmn-btn">Try it out</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-6">
+                        <div class="section-text">
+                            <h5 class="sub-title">Budgeting and beyond</h5>
+                            <h2 class="title">Master Your Money With Smart Analytics</h2>
+                            <p>Get a clear view of your spending with a breakdown by merchants, categories, countries, and more</p>
+                        </div>
+                        <div class="bottom-area d-xxl-flex">
+                            <a href="{% url 'signup' %}" class="cmn-btn">Check it Out</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="sec-image">
+                            <img src="{% static 'images/budgeting-analytics-features-2.png' %}" alt="image" class="w-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features end -->
+    
+    <!-- Testimonials start -->
+    <section class="testimonials">
+        <div class="overlay pt-120 pb-120">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Testimonials</h5>
+                            <h2 class="title">What Our Customers Say</h2>
+                            <p>245m+ happy clients all around the world. Don’t just take our word for it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid wow fadeInUp">
+                <div class="testimonials-carousel">
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-1.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Aspen Press</h5>
+                                    <p>Web Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-2.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Courtney Henry</h5>
+                                    <p>Balance Studio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-3.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Paul Howell</h5>
+                                    <p>President of Sales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slide">
+                        <div class="single-content">
+                            <div class="start-area">
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                                <a href="javascript:void(0)"><i class="fas fa-star"></i></a>
+                            </div>
+                            <h5 class="title-area">Great Fast Reliable Service</h5>
+                            <p class="xlr">"Paylio has always been a reliable solution for my business. I am very satisfied with their speedy service and professional customer care. I highly recommend Paylio to businesses with regular overseas payments."</p>
+                            <div class="profile-area d-flex align-items-center">
+                                <div class="icon-area">
+                                    <img src="{% static 'images/testimonials-img-2.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h5>Courtney Henry</h5>
+                                    <p>Balance Studio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- App Download end -->
+
+    <!-- Call To Action start -->
+    <section class="call-action">
+        <div class="overlay pt-120">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 text-center">
+                        <div class="section-text">
+                            <h5 class="sub-title">What are you waiting for?</h5>
+                            <h2 class="title">Start Taking Control of Your Money Today</h2>
+                            <p>No-fuss company cards for team members, instant virtual cards for security and flexibility — all set up with our easy expense management</p>
+                        </div>
+                        <div class="btn-area">
+                            <a href="{% url 'signup' %}" class="cmn-btn">Sign up in minutes</a>
+                            <a href="{% url 'help' %}" class="cmn-btn active">Talk to an expert</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call To Action end -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-section">
+        <div class="container pt-120">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="newsletter">
+                        <div class="section-area mb-30 dark-sec text-center">
+                            <h3 class="title">Subscribe to Our Newsletter</h3>
+                        </div>
+                        <form action="#">
+                            <div class="form-group d-flex align-items-center">
+                                <input type="text" placeholder="Your Email Address">
+                                <button><img src="{% static 'images/icon/arrow-right-2.png' %}" alt="icon"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area pt-120">
+                <div class="footer-top">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6 d-flex justify-content-center justify-content-sm-start">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex align-items-center">
+                                    <li><a href="{% url 'about' %}">About Us</a></li>
+                                    <li><a href="{% url 'help' %}">Support</a></li>
+                                    <li><a href="{% url 'fees' %}">Fees</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="social-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/facebook.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/linkedin.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/instagram.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/twitter.png' %}" alt="icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6 col-sm-8 d-flex justify-content-center justify-content-sm-start order-sm-0 order-1">
+                            <div class="copyright text-center text-sm-start">
+                                <p> Copyright © 2022 <a href="{% url 'home' %}">Paylio.</a> All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                    <li><a href="{% url 'terms' %}">Terms</a></li>
+                                    <li><a href="{% url 'privacypolicy' %}">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+<script src="{% static '/js/jquery.min.js'%}"></script>
+<script src="{% static '/js/jquery-ui.js' %}"></script>
+<script src="{% static '/js/fontawesome.js' %}"></script>
+<script src="{% static '/js/plugin/slick.js' %}"></script>
+<script src="{% static 'js/plugin/jquery.nice-select.min.js' %}"></script>
+<script src="{% static '/js/plugin/counter.js' %}"></script>
+<script src="{% static '/js/plugin/waypoint.min.js' %}"></script>
+<script src="{% static '/js/plugin/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static '/js/plugin/wow.min.js' %}"></script>
+<script src="{% static '/js/plugin/plugin.js' %}"></script>
+<script src="{% static '/js/main.js' %}"></script>
+<script src="{% static '/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,1661 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paylio - Money Transfer and Online Payments HTML Template</title>
+<link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/slick.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'css/arafat-font.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex header-area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <img style="margin-left: -5px;margin-top: -10px;" src="{% static 'images/logo.png' %}" alt="logo"><span
+            style="color: #4743c9;padding-left: 3px;font-size: 27px;font-weight: bolder;">EPS</span><span
+            style="font-weight: bolder;font-size: 27px;color: #0d6efd;">PAY</span>
+    </a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbar-content">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Personal</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Freelancer Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'subscriptions' %}">Subscriptions</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Business</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Business Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'businessaccount' %}">Business Account</a></li>
+                                        <li><a class="nav-link" href="{% url 'corporatecard' %}">Corporate Card</a></li>
+                                        <li><a class="nav-link" href="{% url 'expensemanagement' %}">Expense Management</a></li>
+                                        <li><a class="nav-link" href="{% url 'budgeting' %}">Budgeting</a></li>
+                                        <li><a class="nav-link" href="{% url 'integrations' %}">Integrations</a></li>
+                                        <li><a class="nav-link" href="{% url 'invoicemanagement' %}">Invoice</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'rewards' %}">Rewards</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Company</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                                        <li><a class="nav-link" href="{% url 'career' %}">Career</a></li>
+                                        <li><a class="nav-link" href="{% url 'careerdetails' %}">Career Details</a></li>
+                                        <li class="dropend sub-navbar">
+                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                                              data-bs-auto-close="outside">Blog</a>
+                                            <ul class="dropdown-menu sub-menu shadow">
+                                                <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                                                <li><a class="nav-link" href="{% url 'blogdetails' %}">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="nav-link" href="{% url 'error' %}">Error</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Help</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'help' %}">Help Center</a></li>
+                                        <li><a class="nav-link" href="{% url 'helpcategory' %}">Help Category</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="right-area header-action d-flex align-items-center max-un">
+                                <a href="{% url 'login' %}" class="login">Login</a>
+                                <a href="{% url 'signup' %}" class="cmn-btn">Sign Up
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+    <!-- Banner Section start -->
+    <section class="banner-section inner-banner career">
+        <div class="overlay">
+            <div class="shape-area">
+                <img src="{% static 'images/banner-blog.png' %}" class="shape-1" alt="image">
+            </div>
+            <div class="banner-content">
+                <div class="container wow fadeInUp">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8 col-md-7">
+                            <div class="main-content">
+                                <h1>Blog</h1>
+                                <div class="breadcrumb-area">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb d-flex align-items-center">
+                                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript:void(0)">Company</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section end -->
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    h1,
+    h1>a {
+        font-size: 76px;
+        line-height: 98.8px;
+        margin-top: -16px;
+    }
+
+    h5,
+    h5>a {
+        font-size: 24px;
+        line-height: 31.2px;
+        margin-top: -6px;
+    }
+
+    @media (max-width: 1199px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 74.1px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 55.9px;
+            margin-top: -10px;
+        }
+
+        .preloader {
+            background-size: 30%;
+        }
+
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link,
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item {
+            font-size: 16px;
+        }
+
+        .banner-section .overlay .banner-content {
+            padding: 220px 0 230px;
+        }
+
+        .banner-section.inner-banner .overlay .banner-content {
+            padding: 215px 0 100px;
+        }
+
+        .how-it-works .single-item.second::after,
+        .banner-section .overlay .banner-content .container .content-shape img {
+            display: none;
+        }
+
+        .app-download .image-area,
+        .global-payment .image-area {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .app-download .image-area img,
+        .global-payment .image-area img {
+            width: 80%;
+        }
+
+        .how-it-works .single-item::after {
+            right: calc(-10% - 10px);
+            top: calc(60% - 20px);
+        }
+
+        .how-it-works .cus-mar {
+            margin-bottom: -30px;
+        }
+
+        .how-it-works .single-item {
+            margin-bottom: 30px;
+        }
+
+        .testimonials .slick-initialized .slick-slide {
+            opacity: 1;
+        }
+
+        .footer-section .newsletter {
+            background-image: none;
+        }
+
+        .banner-section.inner-banner .shape-area .shape-1 {
+            width: 35%;
+        }
+
+        .blog-details-section .authors-area {
+            display: grid !important;
+            padding: 40px;
+        }
+
+        .blog-details-section .authors-area .right-item {
+            margin: 0;
+            margin-top: 30px;
+        }
+
+        .banner-section.business-account .banner-img-bottom {
+            margin-top: -190px;
+        }
+
+        .banner-section.inner-banner.career-details .overlay .banner-content {
+            padding: 215px 0 150px;
+        }
+
+        .error {
+            background-size: contain;
+        }
+
+        .faqs-section .accordion .accordion-item .accordion-button {
+            padding-right: 70px;
+        }
+
+        .banner-section.business-account.integrations .overlay form {
+            width: 80%;
+        }
+
+        .login-reg .sec-img {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .login-reg .sec-img img {
+            max-width: 100%;
+        }
+
+        .features-built .image-area {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .features-built .image-area img {
+            max-width: 100%;
+        }
+
+        .login-reg {
+            margin-top: 50px;
+        }
+
+        .call-action.security .main-content {
+            background-size: 35%;
+        }
+    }
+
+    @media (max-width: 991px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 68.4px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 51.6px;
+            margin-top: -10px;
+        }
+
+        h3,
+        h3>a {
+            font-size: 32px;
+            line-height: 38.4px;
+            margin-top: -8px;
+        }
+
+        h4,
+        h4>a {
+            font-size: 24px;
+            line-height: 28px;
+            margin-top: -6px;
+        }
+
+        h5,
+        h5>a {
+            font-size: 18px;
+            line-height: 22px;
+            margin-top: -4px;
+        }
+
+        h6,
+        h6>a,
+        table thead tr th,
+        a,
+        p,
+        span,
+        li {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+</style>
+    <!-- Blog start -->
+    <section class="blog-section">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="section-header text-center">
+                            <h2 class="title">Paylio Blog</h2>
+                            <p>Follow the Revolut blog for product announcements, feature updates, user stories, and technical posts about banking.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="top-area d-flex justify-content-between">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="cmn-btn active" id="all-post-tab" data-bs-toggle="tab" data-bs-target="#all-post" type="button"
+                                        role="tab" aria-controls="all-post" aria-selected="true">All</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="cmn-btn" id="paylio-tab" data-bs-toggle="tab" data-bs-target="#paylio" type="button"
+                                        role="tab" aria-controls="paylio" aria-selected="false">Paylio</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="cmn-btn" id="business-tab" data-bs-toggle="tab" data-bs-target="#business" type="button"
+                                        role="tab" aria-controls="business" aria-selected="false">Business</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="cmn-btn" id="academy-tab" data-bs-toggle="tab" data-bs-target="#academy" type="button"
+                                        role="tab" aria-controls="academy" aria-selected="false">Academy</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="cmn-btn" id="how-to-tab" data-bs-toggle="tab" data-bs-target="#how-to" type="button"
+                                        role="tab" aria-controls="how-to" aria-selected="false">How to</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="cmn-btn" id="people-tab" data-bs-toggle="tab" data-bs-target="#people" type="button"
+                                        role="tab" aria-controls="people" aria-selected="false">People</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="cmn-btn" id="news-tab" data-bs-toggle="tab" data-bs-target="#news" type="button"
+                                        role="tab" aria-controls="news" aria-selected="false">News</button>
+                                </li>
+                            </ul>
+                            <form action="#">
+                                <div class="form-group mb-40 d-flex align-items-center">
+                                    <img src="{% static 'images/icon/search-icon-2.png' %}" alt="icon">
+                                    <input type="text" placeholder="Search">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="all-post" role="tabpanel" aria-labelledby="all-post-tab">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Factors That Help Shape Choice in the Online Payment World</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Various Online Payment Options and Tips to Avoid Fraud..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Reasons Why You Should Go For Payment solution...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Top Reasons Why You Should Go For Payment Management Solutions</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>How to Make an International Money Transfer - Send Money Safe And Fast</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-2.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>All you need to know about exchange rates</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-9.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>The best way to send money from the UK...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-10.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>5 Tips to Consider Before Investing in...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-11.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Paylio Celebrates 3 years - and 500K business customers</h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-3.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-12.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Track, split and settle bills together..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-13.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Share the love with Revolut Gifting</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="paylio" role="tabpanel" aria-labelledby="paylio-tab">
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Top Reasons Why You Should Go For Payment Management Solutions</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>How to Make an International Money Transfer - Send Money Safe And Fast</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Factors That Help Shape Choice in the Online Payment World</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Various Online Payment Options and Tips to Avoid Fraud..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Reasons Why You Should Go For Payment solution...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-2.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>All you need to know about exchange rates</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-9.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>The best way to send money from the UK...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-10.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>5 Tips to Consider Before Investing in...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-11.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Paylio Celebrates 3 years - and 500K business customers</h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-3.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-12.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Track, split and settle bills together..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-13.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Share the love with Revolut Gifting</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>All you need to know about exchange rates</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-9.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>The best way to send money from the UK...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-10.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>5 Tips to Consider Before Investing in...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Factors That Help Shape Choice in the Online Payment World</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Various Online Payment Options and Tips to Avoid Fraud..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Reasons Why You Should Go For Payment solution...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Top Reasons Why You Should Go For Payment Management Solutions</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>How to Make an International Money Transfer - Send Money Safe And Fast</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-2.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-11.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Paylio Celebrates 3 years - and 500K business customers</h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-3.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-12.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Track, split and settle bills together..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-13.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Share the love with Revolut Gifting</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="academy" role="tabpanel" aria-labelledby="academy-tab">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Factors That Help Shape Choice in the Online Payment World</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Various Online Payment Options and Tips to Avoid Fraud..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Reasons Why You Should Go For Payment solution...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Top Reasons Why You Should Go For Payment Management Solutions</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>How to Make an International Money Transfer - Send Money Safe And Fast</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href=""><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-2.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>All you need to know about exchange rates</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-9.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>The best way to send money from the UK...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-10.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>5 Tips to Consider Before Investing in...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-11.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Paylio Celebrates 3 years - and 500K business customers</h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-3.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-12.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Track, split and settle bills together..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-13.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Share the love with Revolut Gifting</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="how-to" role="tabpanel" aria-labelledby="how-to-tab">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-9.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>The best way to send money from the UK...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>All you need to know about exchange rates</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-10.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>5 Tips to Consider Before Investing in...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Factors That Help Shape Choice in the Online Payment World</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Various Online Payment Options and Tips to Avoid Fraud..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Reasons Why You Should Go For Payment solution...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Top Reasons Why You Should Go For Payment Management Solutions</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>How to Make an International Money Transfer - Send Money Safe And Fast</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-2.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-11.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Paylio Celebrates 3 years - and 500K business customers</h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-3.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-12.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Track, split and settle bills together..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-13.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Share the love with Revolut Gifting</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="people" role="tabpanel" aria-labelledby="people-tab">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Various Online Payment Options and Tips to Avoid Fraud..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Factors That Help Shape Choice in the Online Payment World</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Reasons Why You Should Go For Payment solution...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Top Reasons Why You Should Go For Payment Management Solutions</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>How to Make an International Money Transfer - Send Money Safe And Fast</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-2.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>All you need to know about exchange rates</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-9.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>The best way to send money from the UK...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-10.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>5 Tips to Consider Before Investing in...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-11.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Paylio Celebrates 3 years - and 500K business customers</h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-3.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-12.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Track, split and settle bills together..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-13.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Share the love with Revolut Gifting</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-7.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-2.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-3.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Various Online Payment Options and Tips to Avoid Fraud..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-2.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Factors That Help Shape Choice in the Online Payment World</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-4.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Reasons Why You Should Go For Payment solution...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-1.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Money Transfer Services - Convenient and Reliable </h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-5.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Top Reasons Why You Should Go For Payment Management Solutions</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-6.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>How to Make an International Money Transfer - Send Money Safe And Fast</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-8.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>All you need to know about exchange rates</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-9.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>The best way to send money from the UK...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-10.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>5 Tips to Consider Before Investing in...</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-post d-flex">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-11.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h4>Paylio Celebrates 3 years - and 500K business customers</h4></a>
+                                                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dolor lectus, posuere quis porttitor nec, elementum eu sem. In eleifend mi ut est tempor placerat. Nullam nulla ligula, tincidunt id finibus sit amet, fringilla at arcu.</p>
+                                                <div class="bottom-area d-flex align-items-center justify-content-between">
+                                                    <img src="{% static 'images/blog-user-3.png' %}" alt="image">
+                                                    <div class="btn-area d-flex align-items-center">
+                                                        <a href="{% url 'blogdetails' %}">Read More<img src="{% static 'images/icon/arrow-right-4.png' %}" alt="icon"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-12.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Track, split and settle bills together..</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-10">
+                                        <div class="single-post">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/blog-image-13.png' %}" alt="image">
+                                            </div>
+                                            <div class="blog-text">
+                                                <p class="date">By Paylio - Feb 7, 2022</p>
+                                                <a href="{% url 'blogdetails' %}"><h5>Share the love with Revolut Gifting</h5></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog end -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="newsletter">
+                        <div class="section-area mb-30 dark-sec text-center">
+                            <h3 class="title">Subscribe to Our Newsletter</h3>
+                        </div>
+                        <form action="#">
+                            <div class="form-group d-flex align-items-center">
+                                <input type="text" placeholder="Your Email Address">
+                                <button><img src="{% static 'images/icon/arrow-right-2.png' %}" alt="icon"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area pt-120">
+                <div class="footer-top">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6 d-flex justify-content-center justify-content-sm-start">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex align-items-center">
+                                    <li><a href="{% url 'about' %}">About Us</a></li>
+                                    <li><a href="{% url 'help' %}">Support</a></li>
+                                    <li><a href="{% url 'fees' %}">Fees</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="social-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/facebook.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/linkedin.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/instagram.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/twitter.png' %}" alt="icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6 col-sm-8 d-flex justify-content-center justify-content-sm-start order-sm-0 order-1">
+                            <div class="copyright text-center text-sm-start">
+                                <p> Copyright © 2022 <a href="{% url 'home' %}">Paylio.</a> All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                    <li><a href="{% url 'terms' %}">Terms</a></li>
+                                    <li><a href="{% url 'privacypolicy' %}">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+    <script src="{% static '/js/jquery.min.js'%}"></script>
+    <script src="{% static '/js/jquery-ui.js' %}"></script>
+    <script src="{% static '/js/fontawesome.js' %}"></script>
+    <script src="{% static '/js/plugin/slick.js' %}"></script>
+    <script src="{% static 'js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static '/js/plugin/counter.js' %}"></script>
+    <script src="{% static '/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static '/js/plugin/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static '/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static '/js/plugin/plugin.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,697 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paylio - Money Transfer and Online Payments Dashboard HTML Template</title>
+
+    <link rel="shortcut icon" href="{% static 'assets/images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/apexcharts.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+{% if logged_in_user %}
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+<script>
+    function formatDateToLocale(dateString) {
+        const options = { day: 'numeric', month: 'short' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+    function formatTimeToAMPM(dateString) {
+        const date = new Date(dateString);
+        let hours = date.getHours();
+        const minutes = date.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 12-hour clock format
+
+        const formattedTime = `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+        return formattedTime;
+    }
+
+
+
+    function getnotifications() {
+        fetch(`notifications`)
+            .then(response => response.json())
+            .then(data => {
+                const notifications = data.success;
+
+                if (notifications) {
+                    let content = '';
+                    notifications.forEach(notification => {
+                        // Format the time using JavaScript Date object
+                        const formattedTime = new Date(notification.time).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            hour12: true
+                        });
+                        const url = `/dashboard/${notification.url}`;
+                        if (notification.senderemail == notification.myemail) {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">you have sent <b>${notification.amount}</b> to <b>${notification.name}</b></p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                        else if (notification.recipientemail == notification.myemail) {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">you have recieved <b>${notification.amount}</b> from <b>${notification.senderemail}</b></p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                        else {
+                            content += `
+                         <li>
+                                            <a href="${url}" class="d-flex">
+                                                <div class="img-area">
+                                                    <img src="{% static 'assets/images/user-1.png' %}" class="max-un" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <p class="mdr">${notification.notification}</p>
+                                                    <p class="mdr time-area">${formattedTime}</p>
+                                                </div>
+                                            </a>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </li>
+                        `;
+                        }
+                    });
+
+                    // Append generated content to the table body
+                    document.getElementById('notificationTableBody').innerHTML = content;
+                } else {
+                    console.log('No notifications found');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    // Call the function on document load
+    document.addEventListener('DOMContentLoaded', function () {
+        getnotifications();
+    });
+</script>
+    <!-- header-section start -->
+    <header class="header-section body-collapse">
+        <div class="overlay">
+            <div class="container-fruid">
+                <div class="row d-flex header-area">
+                    <div class="navbar-area d-flex align-items-center justify-content-between">
+                        <div class="sidebar-icon">
+                            <img src="{% static 'assets/images/icon/menu.png' %}" alt="icon">
+                        </div>
+                        <form action="#" class="flex-fill">
+                            <div class="form-group d-flex align-items-center">
+                                <img src="{% static 'assets/images/icon/search.png' %}" alt="icon">
+                                <input type="text" placeholder="Type to search...">
+                            </div>
+                        </form>
+                        <div class="dashboard-nav">
+                            <div class="single-item language-area">
+                                <div class="language-btn">
+                                    <img src="{% static 'assets/images/icon/lang.png' %}" alt="icon">
+                                </div>
+                                <ul class="main-area language-content">
+                                    <li>English</li>
+                                    <li>Hindi</li>
+                                    <li class="active">English (US)</li>
+                                    <li>Japanese</li>
+                                    <li>Kannada</li>
+                                    <li>Lithuanian</li>
+                                </ul>
+                            </div>
+                            <div class="single-item notifications-area">
+                                <div class="notifications-btn">
+                                    <img src="{% static 'assets/images/icon/bell.png' %}" class="bell-icon" alt="icon">
+                                </div>
+                                <div class="main-area notifications-content">
+                                    <div class="head-area d-flex justify-content-between">
+                                        <h5>Notifications</h5>
+                                        <span class="mdr">4</span>
+                                    </div>
+                                    <ul id="notificationTableBody">
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-item user-area">
+                                <div class="profile-area d-flex align-items-center">
+                                    <span class="user-profile">
+                                                {% if logged_in_user.image_url %}
+                                                <img style="width: 40px;height: 40px;border-radius: 50%;" src="{{logged_in_user.image_url}}" alt="image">
+                                                {% else %}
+                                                <img src="{% static 'assets/images/avatar.png' %}" alt="">
+                                                {% endif %}
+                                    </span>
+                                    <i class="fa-solid fa-sort-down"></i>
+                                </div>
+                                <div class="main-area user-content">
+                                    <div class="head-area d-flex align-items-center">
+                                        <div class="profile-img">
+                                                {% if logged_in_user.image_url %}
+                                                <img style="width: 50px;height: 50px;border-radius: 50%;" src="{{logged_in_user.image_url}}" alt="image">
+                                                {% else %}
+                                                <img src="{% static 'assets/images/avatar.png' %}" alt="">
+                                                {% endif %}
+                                        </div>
+                                        <div class="profile-head">
+                                            <a href="javascript:void(0)">
+                                                <h5>{{logged_in_user.firstname}} {{logged_in_user.lastname}}</h5>
+                                            </a>
+                                            <p class="wallet-id">Wallet ID: 6264849965</p>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="border-area">
+                                            <a href="{% url 'account' %}"><i class="fas fa-cog"></i>Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'logout' %}"><i class="fas fa-sign-out"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-wrapper">
+                        <div class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <div class="sidebar-logo">
+<a href="{% url 'dashboard' %}"><img style="width: 20px;margin-left: -5px;" src="{% static 'assets/images/logo.png' %}"
+        alt="logo"><span style="color: #5927E3;padding-left: 3px;font-size: 19px;font-weight: bold;">EPS</span><span
+        style="font-weight: bold;font-size: 19px;color: #D8481B;">PAY</span></a>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="{% url 'dashboard' %}">
+                                    <img src="{% static 'assets/images/icon/dashboard.png' %}" alt="Dashboard"> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'transactions' %}">
+                                    <img src="{% static 'assets/images/icon/transactions.png' %}" alt="Transactions"> <span>Transactions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'pay' %}">
+                                    <img src="{% static 'assets/images/icon/pay.png' %}" alt="Pay"> <span>Pay</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'receive1' %}">
+                                    <img src="{% static 'assets/images/icon/receive.png' %}" alt="Receive"> <span>Receive</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'moneyexchange' %}">
+                                    <img src="{% static 'assets/images/icon/exchange.png' %}" alt="Exchange"> <span>Exchange</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'recipients' %}">
+                                    <img src="{% static 'assets/images/icon/recipients.png' %}" alt="Recipients"> <span>Recipients</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'crypto' %}">
+                                    <img src="{% static 'assets/images/icon/crypto.png' %}" alt="Crypto"> <span>Crypto</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'depositmoney' %}">
+                                    <img src="{% static 'assets/images/icon/deposit.png' %}" alt="Deposit"> <span>Deposit Money</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="{% url 'withdraw1' %}">
+                                    <img src="{% static 'assets/images/icon/withdraw.png' %}" alt="Withdraw"> <span>Withdraw Money</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="bottom-item">
+                            <li>
+                                <a href="{% url 'account' %}">
+                                    <img src="{% static 'assets/images/icon/account.png' %}" alt="Account"> <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="{% static 'assets/images/icon/support.png' %}" alt="Support"> <span>Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="{% static 'assets/images/icon/quit.png' %}" alt="Quit"> <span>Quit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="pt-120">
+                            <div class="invite-now">
+                                <div class="img-area">
+                                    <img src="{% static 'assets/images/invite-now-illus.png' %}" alt="Image">
+                                </div>
+                                <p>Invite your friend and get $25</p>
+                                <a href="javascript:void(0)" class="cmn-btn">Invite Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+    <!-- Dashboard Section start -->
+    <section class="dashboard-section body-collapse pay step deposit-money withdraw-money">
+        <div class="overlay pt-120">
+            <div class="container-fruid">
+                <div class="main-content">
+                    <div class="head-area d-flex align-items-center justify-content-between">
+                        <h4>Withdraw Funds</h4>
+                        <div class="icon-area">
+                            <img src="{% static 'assets/images/icon/support-icon.png' %}" alt="icon">
+                        </div>
+                    </div>
+                    <div class="choose-recipient">
+                        <div class="step-area">
+                            <span class="mdr">Step 1 of 3</span>
+                            <h5>Choose Recipient</h5>
+                        </div>
+                        <div class="recipient-list">
+                            <button class="my-recipients">
+                                <span class="icon-area">
+                                    <i class="icon-f-user"></i>
+                                </span>
+                                <span>My Recipients</span>
+                            </button>
+                            <button data-bs-toggle="modal" data-bs-target="#recipientsMod">
+                                <span class="icon-area">
+                                    <i class="icon-e-plus"></i>
+                                </span>
+                                <span>New Recipients</span>
+                            </button>
+                            <button class="active">
+                                <span class="icon-area">
+                                    <i class="icon-f-user"></i>
+                                </span>
+                                <span>Send to myself</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row pb-120">
+                        <div class="col-md-8">
+                            <div class="table-area">
+                                <div class="head-item">
+                                    <h6>Linked Payment system</h6>
+                                </div>
+                                <div class="card-area d-flex flex-wrap">
+                                    <div class="single-card">
+                                        <input type="radio" checked name="cardSelect" id="visa"/>
+                                        <label for="visa">
+                                            <span class="wrapper"></span>
+                                            <img src="{% static 'assets/images/visa-card.png' %}" alt="image">
+                                        </label>
+                                    </div>
+                                    <div class="single-card">
+                                        <input type="radio" name="cardSelect" id="paypal"/>
+                                        <label for="paypal">
+                                            <span class="wrapper"></span>
+                                            <img src="{% static 'assets/images/paypal-card.png' %}" alt="image">
+                                        </label>
+                                    </div>
+                                    <div class="single-card">
+                                        <input type="radio" name="cardSelect" id="paylio"/>
+                                        <label for="paylio">
+                                            <span class="wrapper"></span>
+                                            <img src="{% static 'assets/images/paylio-card.png' %}" alt="image">
+                                        </label>
+                                    </div>
+                                    <div class="single-card">
+                                        <input type="radio" name="cardSelect" id="blockchain"/>
+                                        <label for="blockchain">
+                                            <span class="wrapper"></span>
+                                            <img src="{% static 'assets/images/blockchain-card.png' %}" alt="image">
+                                        </label>
+                                    </div>
+                                    <div class="single-card">
+                                        <button type="button" class="reg w-100 p-0" data-bs-toggle="modal" data-bs-target="#addcardMod">
+                                            <img src="{% static 'assets/images/add-new.png' %}" alt="image" class="w-100">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-area mt-40">
+                                <a href="javascript:void(0)">Previous Step</a>
+                                <a href="{% url 'withdraw2' %}" class="active">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dashboard Section end -->
+    
+    <!-- Transfer Popup start -->
+    <div class="transfer-popup">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="transferMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <ul class="nav nav-tabs d-none" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="transfer-tab" data-bs-toggle="tab"
+                                        data-bs-target="#transfer" type="button" role="tab" aria-controls="transfer"
+                                        aria-selected="true">transfer</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="success-tab" data-bs-toggle="tab"
+                                        data-bs-target="#success" type="button" role="tab" aria-controls="success"
+                                        aria-selected="false">Confirm</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="transfer" role="tabpanel" aria-labelledby="transfer-tab">
+                                    <div class="modal-content">
+                                        <div class="modal-header mb-60 justify-content-between">
+                                            <a href="javascript:void(0)">
+                                                <i class="icon-a-left-arrow"></i>
+                                                Back
+                                            </a>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                        </div>
+                                        <div class="main-content">
+                                            <h4>Confirm Transfer!</h4>
+                                            <p>We have sent a verification code on your phone + Number  +44831***932. Please enter verification code below</p>
+                                            <form action="javascript:void(0)">
+                                                <div class="userInput">
+                                                    <input type="text">
+                                                    <input type="text">
+                                                    <input type="text">
+                                                    <input type="text">
+                                                </div>
+                                                <a href="javascript:void(0)">Don’t receive a code?</a>
+                                                <button class="mt-60 confirm">Confirm</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="success" role="tabpanel" aria-labelledby="success-tab">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close d-md-none d-block" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                        </div>
+                                        <div class="main-content text-center pt-120 pb-120">
+                                            <img src="{% static 'assets/images/icon/success.png' %}" alt="icon">
+                                            <h3>Success</h3>
+                                            <p>Transfer was completed.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Transfer Popup start -->
+
+    <!-- Add Card Popup start -->
+    <div class="add-card">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="addcardMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-between">
+                                    <h6>Add Card</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <form action="#">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <div class="single-input">
+                                                <label for="cardNumber">Card Number</label>
+                                                <input type="text" id="cardNumber" placeholder="5890 - 6858 - 6332 - 9843">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-input">
+                                                <label for="cardHolder">Card Holder</label>
+                                                <input type="text" id="cardHolder" placeholder="Alfred Davis">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-input">
+                                                <label for="month">Month</label>
+                                                <input type="text" id="month" placeholder="12">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-input">
+                                                <label for="year">Year</label>
+                                                <input type="text" id="year" placeholder="2025">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="btn-border w-100">
+                                                <button class="cmn-btn w-100">Add Card</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Card Popup start -->
+
+    <!-- Add Recipients Popup start -->
+    <div class="add-recipients">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="recipientsMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-between">
+                                    <h6>Add Recipients</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="company-tab" data-bs-toggle="tab"
+                                            data-bs-target="#company" type="button" role="tab" aria-controls="company"
+                                            aria-selected="true">
+                                            <span class="icon-area">
+                                                <img src="{% static 'assets/images/icon/company-icon.png' %}" alt="icon">
+                                            </span>
+                                            Company
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="individual-tab" data-bs-toggle="tab"
+                                            data-bs-target="#individual" type="button" role="tab" aria-controls="individual"
+                                            aria-selected="false">
+                                            <span class="icon-area">
+                                                <img src="{% static 'assets/images/icon/individual-icon.png' %}" alt="icon">
+                                            </span>
+                                            Individual
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="company" role="tabpanel" aria-labelledby="company-tab">
+                                        <div class="image-area mt-30 text-center">
+                                            <img src="{% static 'assets/images/icon/add-recipients.png' %}" alt="icon">
+                                        </div>
+                                        <form action="#">
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="companyName">Company Name</label>
+                                                        <input type="text" id="companyName" placeholder="xtechlab">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <label for="companyfname">First Name</label>
+                                                        <input type="text" id="companyfname" placeholder="Dana">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <label for="companylname">Last Name</label>
+                                                        <input type="text" id="companylname" placeholder="Patton">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="companyemail">Email</label>
+                                                        <input type="text" id="companyemail" placeholder="danap24@gmail.com">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="companyphone">Phone</label>
+                                                        <div class="select-area d-flex align-items-center">
+                                                            <select>
+                                                                <option value="1">+1</option>
+                                                                <option value="2">+2</option>
+                                                                <option value="3">+3</option>
+                                                            </select>
+                                                            <input type="text" id="companyphone" placeholder="(070) 4567-8800">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="single-input">
+                                                        <label>Select Country</label>
+                                                        <select>
+                                                            <option value="1">Canada</option>
+                                                            <option value="2">Japan</option>
+                                                            <option value="3">Germany</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="btn-border w-100">
+                                                        <button class="cmn-btn w-100">Add Recipients</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="individual" role="tabpanel" aria-labelledby="individual-tab">
+                                        <div class="image-area mt-30 text-center">
+                                            <img src="{% static 'assets/images/icon/add-recipients.png' %}" alt="icon">
+                                        </div>
+                                        <form action="#">
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="individualName">Individual Name</label>
+                                                        <input type="text" id="individualName" placeholder="xtechlab">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <label for="fname">First Name</label>
+                                                        <input type="text" id="fname" placeholder="Dana">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <label for="lname">Last Name</label>
+                                                        <input type="text" id="lname" placeholder="Patton">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="email">Email</label>
+                                                        <input type="text" id="email" placeholder="danap24@gmail.com">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="phone">Phone</label>
+                                                        <div class="select-area d-flex align-items-center">
+                                                            <select>
+                                                                <option value="1">+1</option>
+                                                                <option value="2">+2</option>
+                                                                <option value="3">+3</option>
+                                                            </select>
+                                                            <input type="text" id="phone" placeholder="(070) 4567-8800">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="single-input">
+                                                        <label>Select Country</label>
+                                                        <select>
+                                                            <option value="1">Canada</option>
+                                                            <option value="2">Japan</option>
+                                                            <option value="3">Germany</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="btn-border w-100">
+                                                        <button class="cmn-btn w-100">Add Recipients</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Transactions Popup start -->
+{% endif %}
+    <!--==================================================================-->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/apexcharts.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/plugin.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

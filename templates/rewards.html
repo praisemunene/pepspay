@@ -1,0 +1,1772 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paylio - Money Transfer and Online Payments HTML Template</title>
+<link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/slick.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'css/arafat-font.css' %}">
+<link rel="stylesheet" href="{% static 'css/plugin/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex header-area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        <img style="margin-left: -5px;margin-top: -10px;" src="{% static 'images/logo.png' %}" alt="logo"><span
+                            style="color: #4743c9;padding-left: 3px;font-size: 27px;font-weight: bolder;">EPS</span><span
+                            style="font-weight: bolder;font-size: 27px;color: #0d6efd;">PAY</span>
+                    </a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbar-content">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Personal</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Freelancer Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'subscriptions' %}">Subscriptions</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Business</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'payment1' %}">Business Payments</a></li>
+                                        <li><a class="nav-link" href="{% url 'businessaccount' %}">Business Account</a></li>
+                                        <li><a class="nav-link" href="{% url 'corporatecard' %}">Corporate Card</a></li>
+                                        <li><a class="nav-link" href="{% url 'expensemanagement' %}">Expense Management</a></li>
+                                        <li><a class="nav-link" href="{% url 'budgeting' %}">Budgeting</a></li>
+                                        <li><a class="nav-link" href="{% url 'integrations' %}">Integrations</a></li>
+                                        <li><a class="nav-link" href="{% url 'invoicemanagement' %}">Invoice</a></li>
+                                        <li><a class="nav-link" href="{% url 'security' %}">Security</a></li>
+                                        <li><a class="nav-link" href="{% url 'rewards' %}">Rewards</a></li>
+                                        <li><a class="nav-link" href="{% url 'fees' %}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Company</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                                        <li><a class="nav-link" href="{% url 'career' %}">Career</a></li>
+                                        <li><a class="nav-link" href="{% url 'careerdetails' %}">Career Details</a></li>
+                                        <li class="dropend sub-navbar">
+                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                                              data-bs-auto-close="outside">Blog</a>
+                                            <ul class="dropdown-menu sub-menu shadow">
+                                                <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                                                <li><a class="nav-link" href="{% url 'blogdetails' %}">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="nav-link" href="{% url 'error' %}">Error</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Help</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="{% url 'help' %}">Help Center</a></li>
+                                        <li><a class="nav-link" href="{% url 'helpcategory' %}">Help Category</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="right-area header-action d-flex align-items-center max-un">
+                                <a href="{% url 'login' %}" class="login">Login</a>
+                                <a href="{% url 'signup' %}" class="cmn-btn">Sign Up
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+    <!-- Banner Section start -->
+    <section class="banner-section invoice-management rewards">
+        <div class="overlay">
+            <div class="shape-area">
+                <img src="{% static 'images/rewards-banner-1.png' %}" class="obj-1" alt="icon">
+                <img src="{% static 'images/rewards-banner-2.png' %}" class="obj-2" alt="icon">
+            </div>
+            <div class="banner-content">
+                <div class="container wow fadeInUp">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-8">
+                            <div class="main-content text-center">
+                                <div class="top-area section-text dark-sec">
+                                    <h5 class="sub-title">Rewards that matter</h5>
+                                    <h1 class="title">Boost Your Business and growth with unlimited rewards</h1>
+                                    <p>Open an Paylio account and gain access to over S$50,000 worth of exclusive benefits from our platform partners.</p>
+                                </div>
+                                <div class="btn-area">
+                                    <a href="{% url 'signup' %}" class="cmn-btn">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section end -->
+
+    <!-- How it Works start -->
+    <section class="how-it-works second">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">How it works?</h5>
+                            <h2 class="title">Get Exclusive Perks</h2>
+                            <p>Paylio partner offers are worth over $50,000 in value and can..</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-xl-4 col-sm-6 col-6">
+                        <div class="single-item first text-center">
+                            <div class="step-box">
+                                <h3>01</h3>
+                            </div>
+                            <h5>Open Account</h5>
+                            <p>Become an Paylio member by opening your free business account</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 col-6">
+                        <div class="single-item second text-center">
+                            <div class="step-box">
+                                <h3>02</h3>
+                            </div>
+                            <h5>Redeem Reward</h5>
+                            <p>Login to your Paylio dashboard and click the rewards banner.</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 col-6">
+                        <div class="single-item text-center">
+                            <div class="step-box">
+                                <h3>03</h3>
+                            </div>
+                            <h5>Enjoy Reward</h5>
+                            <p>Enjoy the benefits of being an Paylio member and grow your business</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it Works end -->
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    h1,
+    h1>a {
+        font-size: 76px;
+        line-height: 98.8px;
+        margin-top: -16px;
+    }
+
+    h5,
+    h5>a {
+        font-size: 24px;
+        line-height: 31.2px;
+        margin-top: -6px;
+    }
+
+    @media (max-width: 1199px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 74.1px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 55.9px;
+            margin-top: -10px;
+        }
+
+        .preloader {
+            background-size: 30%;
+        }
+
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .nav-link,
+        .header-section .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-item {
+            font-size: 16px;
+        }
+
+        .banner-section .overlay .banner-content {
+            padding: 220px 0 230px;
+        }
+
+        .banner-section.inner-banner .overlay .banner-content {
+            padding: 215px 0 100px;
+        }
+
+        .how-it-works .single-item.second::after,
+        .banner-section .overlay .banner-content .container .content-shape img {
+            display: none;
+        }
+
+        .app-download .image-area,
+        .global-payment .image-area {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .app-download .image-area img,
+        .global-payment .image-area img {
+            width: 80%;
+        }
+
+        .how-it-works .single-item::after {
+            right: calc(-10% - 10px);
+            top: calc(60% - 20px);
+        }
+
+        .how-it-works .cus-mar {
+            margin-bottom: -30px;
+        }
+
+        .how-it-works .single-item {
+            margin-bottom: 30px;
+        }
+
+        .testimonials .slick-initialized .slick-slide {
+            opacity: 1;
+        }
+
+        .footer-section .newsletter {
+            background-image: none;
+        }
+
+        .banner-section.inner-banner .shape-area .shape-1 {
+            width: 35%;
+        }
+
+        .blog-details-section .authors-area {
+            display: grid !important;
+            padding: 40px;
+        }
+
+        .blog-details-section .authors-area .right-item {
+            margin: 0;
+            margin-top: 30px;
+        }
+
+        .banner-section.business-account .banner-img-bottom {
+            margin-top: -190px;
+        }
+
+        .banner-section.inner-banner.career-details .overlay .banner-content {
+            padding: 215px 0 150px;
+        }
+
+        .error {
+            background-size: contain;
+        }
+
+        .faqs-section .accordion .accordion-item .accordion-button {
+            padding-right: 70px;
+        }
+
+        .banner-section.business-account.integrations .overlay form {
+            width: 80%;
+        }
+
+        .login-reg .sec-img {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .login-reg .sec-img img {
+            max-width: 100%;
+        }
+
+        .features-built .image-area {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .features-built .image-area img {
+            max-width: 100%;
+        }
+
+        .login-reg {
+            margin-top: 50px;
+        }
+
+        .call-action.security .main-content {
+            background-size: 35%;
+        }
+    }
+
+    @media (max-width: 991px) {
+
+        h1,
+        h1>a {
+            font-size: 57px;
+            line-height: 68.4px;
+            margin-top: -16px;
+        }
+
+        h2,
+        h2>a {
+            font-size: 43px;
+            line-height: 51.6px;
+            margin-top: -10px;
+        }
+
+        h3,
+        h3>a {
+            font-size: 32px;
+            line-height: 38.4px;
+            margin-top: -8px;
+        }
+
+        h4,
+        h4>a {
+            font-size: 24px;
+            line-height: 28px;
+            margin-top: -6px;
+        }
+
+        h5,
+        h5>a {
+            font-size: 18px;
+            line-height: 22px;
+            margin-top: -4px;
+        }
+
+        h6,
+        h6>a,
+        table thead tr th,
+        a,
+        p,
+        span,
+        li {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+</style>
+
+    <!-- Partner perks start -->
+    <section class="partner-perks">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Partner perks</h5>
+                            <h2 class="title">Get discounts on top services to run your company</h2>
+                            <p>Paylio partner offers are worth over $50,000 in value and can be redeemed anytime.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-xl-12">
+                        <ul class="nav nav-tabs mb-40" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="cmn-btn active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button"
+                                    role="tab" aria-controls="all" aria-selected="true">all</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="cmn-btn" id="featured-tab" data-bs-toggle="tab" data-bs-target="#featured" type="button"
+                                    role="tab" aria-controls="featured" aria-selected="false">featured</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="cmn-btn" id="legal-tab" data-bs-toggle="tab" data-bs-target="#legal" type="button"
+                                    role="tab" aria-controls="legal" aria-selected="false">legal</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="cmn-btn" id="ecommerce-tab" data-bs-toggle="tab" data-bs-target="#ecommerce" type="button"
+                                    role="tab" aria-controls="ecommerce" aria-selected="false">ecommerce</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="cmn-btn" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance" type="button"
+                                    role="tab" aria-controls="finance" aria-selected="false">finance</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="cmn-btn" id="cloud-tab" data-bs-toggle="tab" data-bs-target="#cloud" type="button"
+                                    role="tab" aria-controls="cloud" aria-selected="false">cloud</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="cmn-btn" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing" type="button"
+                                    role="tab" aria-controls="marketing" aria-selected="false">marketing</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                                <div class="row cus-mar">
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-4.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Google Ads</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online advertising platform developed by Google</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-5.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Freshworks</h5>
+                                                    <p>$10K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Feature packed product suite for businesses of..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-1.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Workspace</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Google Workspace seamlessly brings together...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-2.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>AWs</h5>
+                                                    <p>$5K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>World's most comprehensive and broadly adopted..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-3.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-6.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-7.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Shopify</h5>
+                                                    <p>$2,250* OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Commerce platform that allows anyone to set up an...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-8.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Dropbox</h5>
+                                                    <p>GET 40% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Dropbox is a modern workspace designed to an..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-9.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>BambooHR</h5>
+                                                    <p>20% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>HR solution targeted toward small- and medium-sized..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
+                                <div class="row cus-mar">
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-6.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-7.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Shopify</h5>
+                                                    <p>$2,250* OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Commerce platform that allows anyone to set up an...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-4.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Google Ads</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online advertising platform developed by Google</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-5.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Freshworks</h5>
+                                                    <p>$10K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Feature packed product suite for businesses of..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-1.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Workspace</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Google Workspace seamlessly brings together...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-2.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>AWs</h5>
+                                                    <p>$5K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>World's most comprehensive and broadly adopted..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-3.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-8.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Dropbox</h5>
+                                                    <p>GET 40% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Dropbox is a modern workspace designed to an..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-9.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>BambooHR</h5>
+                                                    <p>20% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>HR solution targeted toward small- and medium-sized..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="legal" role="tabpanel" aria-labelledby="legal-tab">
+                                <div class="row cus-mar">
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-1.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Workspace</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Google Workspace seamlessly brings together...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-2.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>AWs</h5>
+                                                    <p>$5K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>World's most comprehensive and broadly adopted..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-4.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Google Ads</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online advertising platform developed by Google</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-5.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Freshworks</h5>
+                                                    <p>$10K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Feature packed product suite for businesses of..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-3.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-6.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-7.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Shopify</h5>
+                                                    <p>$2,250* OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Commerce platform that allows anyone to set up an...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-8.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Dropbox</h5>
+                                                    <p>GET 40% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Dropbox is a modern workspace designed to an..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-9.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>BambooHR</h5>
+                                                    <p>20% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>HR solution targeted toward small- and medium-sized..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="ecommerce" role="tabpanel" aria-labelledby="ecommerce-tab">
+                                <div class="row cus-mar">
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-1.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Workspace</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Google Workspace seamlessly brings together...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-2.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>AWs</h5>
+                                                    <p>$5K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>World's most comprehensive and broadly adopted..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-4.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Google Ads</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online advertising platform developed by Google</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-5.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Freshworks</h5>
+                                                    <p>$10K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Feature packed product suite for businesses of..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-3.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-6.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-7.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Shopify</h5>
+                                                    <p>$2,250* OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Commerce platform that allows anyone to set up an...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-8.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Dropbox</h5>
+                                                    <p>GET 40% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Dropbox is a modern workspace designed to an..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-9.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>BambooHR</h5>
+                                                    <p>20% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>HR solution targeted toward small- and medium-sized..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="finance" role="tabpanel" aria-labelledby="finance-tab">
+                                <div class="row cus-mar">
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-8.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Dropbox</h5>
+                                                    <p>GET 40% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Dropbox is a modern workspace designed to an..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-9.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>BambooHR</h5>
+                                                    <p>20% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>HR solution targeted toward small- and medium-sized..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-4.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Google Ads</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online advertising platform developed by Google</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-5.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Freshworks</h5>
+                                                    <p>$10K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Feature packed product suite for businesses of..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-1.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Workspace</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Google Workspace seamlessly brings together...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-2.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>AWs</h5>
+                                                    <p>$5K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>World's most comprehensive and broadly adopted..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-3.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-6.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-7.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Shopify</h5>
+                                                    <p>$2,250* OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Commerce platform that allows anyone to set up an...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="cloud" role="tabpanel" aria-labelledby="cloud-tab">
+                                <div class="row cus-mar">
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-7.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Shopify</h5>
+                                                    <p>$2,250* OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Commerce platform that allows anyone to set up an...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-8.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Dropbox</h5>
+                                                    <p>GET 40% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Dropbox is a modern workspace designed to an..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-4.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Google Ads</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online advertising platform developed by Google</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-5.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Freshworks</h5>
+                                                    <p>$10K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Feature packed product suite for businesses of..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-1.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Workspace</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Google Workspace seamlessly brings together...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-2.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>AWs</h5>
+                                                    <p>$5K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>World's most comprehensive and broadly adopted..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-3.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-6.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-9.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>BambooHR</h5>
+                                                    <p>20% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>HR solution targeted toward small- and medium-sized..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="marketing" role="tabpanel" aria-labelledby="marketing-tab">
+                                <div class="row cus-mar">
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-1.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Workspace</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Google Workspace seamlessly brings together...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-4.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Google Ads</h5>
+                                                    <p>12% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online advertising platform developed by Google</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-5.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Freshworks</h5>
+                                                    <p>$10K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Feature packed product suite for businesses of..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-2.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>AWs</h5>
+                                                    <p>$5K CREDIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>World's most comprehensive and broadly adopted..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-3.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-6.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Stripe</h5>
+                                                    <p>$20K SGD</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Online payment processing for internet businesses.</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-7.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Shopify</h5>
+                                                    <p>$2,250* OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Commerce platform that allows anyone to set up an...</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-8.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>Dropbox</h5>
+                                                    <p>GET 40% OFF</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>Dropbox is a modern workspace designed to an..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-9">
+                                        <div class="single-box">
+                                            <div class="head-area d-flex align-items-center">
+                                                <div class="logo-area">
+                                                    <img src="{% static 'images/icon/partner-logo-9.png' %}" alt="image">
+                                                </div>
+                                                <div class="text-area">
+                                                    <h5>BambooHR</h5>
+                                                    <p>20% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="body-area">
+                                                <p>HR solution targeted toward small- and medium-sized..</p>
+                                                <div class="btn-area">
+                                                    <a href="javascript:void(0)" class="cmn-btn">Claim Reward</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Partner perks end -->
+
+    <!-- Call Action start -->
+    <section class="call-action">
+        <div class="overlay pt-120">
+            <div class="container">
+                <div class="main-content">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5">
+                            <div class="section-text text-center">
+                                <h2 class="title">Get Started Today</h2>
+                                <p>East, fast, transparent. Paylio gives over 10,000 business owners their money and time back.</p>
+                            </div>
+                            <div class="btn-area text-center">
+                                <a href="{% url 'signup' %}" class="cmn-btn">Sign up in minutes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call Action end -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-section">
+        <div class="container pt-120">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="newsletter">
+                        <div class="section-area mb-30 dark-sec text-center">
+                            <h3 class="title">Subscribe to Our Newsletter</h3>
+                        </div>
+                        <form action="#">
+                            <div class="form-group d-flex align-items-center">
+                                <input type="text" placeholder="Your Email Address">
+                                <button><img src="{% static 'images/icon/arrow-right-2.png' %}" alt="icon"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area pt-120">
+                <div class="footer-top">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6 d-flex justify-content-center justify-content-sm-start">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex align-items-center">
+                                    <li><a href="{% url 'about' %}">About Us</a></li>
+                                    <li><a href="{% url 'help' %}">Support</a></li>
+                                    <li><a href="{% url 'fees' %}">Fees</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="social-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/facebook.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/linkedin.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/instagram.png' %}" alt="icon"></a>
+                                <a href="javascript:void(0)"><img src="{% static 'images/icon/twitter.png' %}" alt="icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6 col-sm-8 d-flex justify-content-center justify-content-sm-start order-sm-0 order-1">
+                            <div class="copyright text-center text-sm-start">
+                                <p> Copyright © 2022 <a href="{% url 'home' %}">Paylio.</a> All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4">
+                            <div class="menu-item">
+                                <ul class="footer-link d-flex justify-content-sm-end justify-content-center align-items-center">
+                                    <li><a href="{% url 'terms' %}">Terms</a></li>
+                                    <li><a href="{% url 'privacypolicy' %}">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+    <script src="{% static '/js/jquery.min.js'%}"></script>
+    <script src="{% static '/js/jquery-ui.js' %}"></script>
+    <script src="{% static '/js/fontawesome.js' %}"></script>
+    <script src="{% static '/js/plugin/slick.js' %}"></script>
+    <script src="{% static 'js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static '/js/plugin/counter.js' %}"></script>
+    <script src="{% static '/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static '/js/plugin/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static '/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static '/js/plugin/plugin.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
